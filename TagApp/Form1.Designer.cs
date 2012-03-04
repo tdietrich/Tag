@@ -33,10 +33,10 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTagType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +91,15 @@
             this.dataGridView1.Size = new System.Drawing.Size(762, 490);
             this.dataGridView1.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(880, 541);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(153, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Wyczyść tabelę";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // FileName
             // 
             this.FileName.HeaderText = "Nazwa";
@@ -105,18 +114,11 @@
             // 
             this.FileTagType.HeaderText = "Rodzaj Tagów";
             this.FileTagType.Name = "FileTagType";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(880, 541);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Wyczyść tabelę";
-            this.button2.UseVisualStyleBackColor = true;
+            this.FileTagType.Width = 50;
             // 
             // Form1
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 575);
@@ -140,10 +142,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileTagType;
-        private System.Windows.Forms.Button button2;
 
     }
 }
