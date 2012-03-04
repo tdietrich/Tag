@@ -43,11 +43,20 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otwórzPlikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.otwórzFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edycjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.narzędziaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -159,6 +168,65 @@
             this.toolStripProgressBar1.Name = "toolStripProgressBar1";
             this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plikToolStripMenuItem,
+            this.edycjaToolStripMenuItem,
+            this.narzędziaToolStripMenuItem,
+            this.pomocToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1048, 24);
+            this.menuStrip1.TabIndex = 5;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // plikToolStripMenuItem
+            // 
+            this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.otwórzPlikToolStripMenuItem,
+            this.otwórzFolderToolStripMenuItem,
+            this.zamknijToolStripMenuItem});
+            this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
+            this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
+            this.plikToolStripMenuItem.Text = "Plik";
+            // 
+            // otwórzPlikToolStripMenuItem
+            // 
+            this.otwórzPlikToolStripMenuItem.Name = "otwórzPlikToolStripMenuItem";
+            this.otwórzPlikToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.otwórzPlikToolStripMenuItem.Text = "Otwórz Plik...";
+            // 
+            // otwórzFolderToolStripMenuItem
+            // 
+            this.otwórzFolderToolStripMenuItem.Name = "otwórzFolderToolStripMenuItem";
+            this.otwórzFolderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.otwórzFolderToolStripMenuItem.Text = "Otwórz Folder...";
+            // 
+            // zamknijToolStripMenuItem
+            // 
+            this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.zamknijToolStripMenuItem.Text = "Zamknij";
+            // 
+            // edycjaToolStripMenuItem
+            // 
+            this.edycjaToolStripMenuItem.Name = "edycjaToolStripMenuItem";
+            this.edycjaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.edycjaToolStripMenuItem.Text = "Edycja";
+            // 
+            // narzędziaToolStripMenuItem
+            // 
+            this.narzędziaToolStripMenuItem.Name = "narzędziaToolStripMenuItem";
+            this.narzędziaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.narzędziaToolStripMenuItem.Text = "Narzędzia";
+            // 
+            // pomocToolStripMenuItem
+            // 
+            this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
+            this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.pomocToolStripMenuItem.Text = "Pomoc";
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -170,6 +238,8 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "TagMainWindow";
             this.groupBox1.ResumeLayout(false);
@@ -179,6 +249,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,6 +272,14 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem plikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otwórzPlikToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem otwórzFolderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zamknijToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edycjaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem narzędziaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
 
     }
 }
