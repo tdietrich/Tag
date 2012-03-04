@@ -24,21 +24,19 @@ namespace TagApp
             this.Close(); 
         }
         ////
-        // Przycisk Dodaj Folder
+        // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane
         //
         private void button1_Click(object sender, EventArgs e)
         {
-            //Jeżeli pole do wpisania jest puste to otwórz okno przeglądaj
+            
             if (this.textBox1.TextLength != 0)
             {
-                //sproboj zaladować path
+                //Jeżeli podano jakis path to sproboj zaladować path
                 
-
             }
-            else
+            else //Jeżeli pole do wpisania jest puste to otwórz okno przeglądaj
             {
-
-
+                folderBrowserDialog1.ShowDialog();
             }
             //END IFELSE
         }

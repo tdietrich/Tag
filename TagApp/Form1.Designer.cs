@@ -63,6 +63,7 @@
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indeksPomocyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -332,6 +333,10 @@
             this.fAQToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fAQToolStripMenuItem.Text = "FAQ";
             // 
+            // folderBrowserDialog1
+            // 
+            this.folderBrowserDialog1.ShowNewFolderButton = false;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -398,6 +403,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FileNum;
         private System.Windows.Forms.DataGridViewTextBoxColumn FileTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
 
     }
 }
