@@ -34,10 +34,14 @@
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.FileOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTagType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileArtist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button2 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.właściwościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -47,10 +51,18 @@
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzPlikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.otwórzFolderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edycjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narzędziaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aktualizacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oProgramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indeksPomocyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -85,6 +97,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Dodaj folder";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -100,13 +113,58 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.FileOrderNumber,
             this.FileName,
-            this.FilePath,
-            this.FileTagType});
+            this.FileTagType,
+            this.FileArtist,
+            this.FileNum,
+            this.FileTitle,
+            this.FilePath});
             this.dataGridView1.Location = new System.Drawing.Point(7, 20);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(762, 490);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // FileOrderNumber
+            // 
+            this.FileOrderNumber.Frozen = true;
+            this.FileOrderNumber.HeaderText = "L.p";
+            this.FileOrderNumber.Name = "FileOrderNumber";
+            this.FileOrderNumber.ReadOnly = true;
+            this.FileOrderNumber.Width = 25;
+            // 
+            // FileName
+            // 
+            this.FileName.Frozen = true;
+            this.FileName.HeaderText = "Nazwa";
+            this.FileName.Name = "FileName";
+            // 
+            // FileTagType
+            // 
+            this.FileTagType.HeaderText = "Rodzaj Tagów";
+            this.FileTagType.Name = "FileTagType";
+            this.FileTagType.Width = 50;
+            // 
+            // FileArtist
+            // 
+            this.FileArtist.HeaderText = "Wykonawca";
+            this.FileArtist.Name = "FileArtist";
+            // 
+            // FileNum
+            // 
+            this.FileNum.HeaderText = "Nr";
+            this.FileNum.Name = "FileNum";
+            // 
+            // FileTitle
+            // 
+            this.FileTitle.HeaderText = "Tytuł";
+            this.FileTitle.Name = "FileTitle";
+            // 
+            // FilePath
+            // 
+            this.FilePath.HeaderText = "Ścieżka";
+            this.FilePath.Name = "FilePath";
+            this.FilePath.ReadOnly = true;
             // 
             // button2
             // 
@@ -116,22 +174,6 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Wyczyść tabelę";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // FileName
-            // 
-            this.FileName.HeaderText = "Nazwa";
-            this.FileName.Name = "FileName";
-            // 
-            // FilePath
-            // 
-            this.FilePath.HeaderText = "Ścieżka";
-            this.FilePath.Name = "FilePath";
-            // 
-            // FileTagType
-            // 
-            this.FileTagType.HeaderText = "Rodzaj Tagów";
-            this.FileTagType.Name = "FileTagType";
-            this.FileTagType.Width = 50;
             // 
             // contextMenuStrip1
             // 
@@ -174,6 +216,7 @@
             this.plikToolStripMenuItem,
             this.edycjaToolStripMenuItem,
             this.narzędziaToolStripMenuItem,
+            this.infoToolStripMenuItem,
             this.pomocToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -186,6 +229,9 @@
             this.plikToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.otwórzPlikToolStripMenuItem,
             this.otwórzFolderToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.toolStripMenuItem1,
+            this.toolStripSeparator2,
             this.zamknijToolStripMenuItem});
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
             this.plikToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
@@ -194,20 +240,41 @@
             // otwórzPlikToolStripMenuItem
             // 
             this.otwórzPlikToolStripMenuItem.Name = "otwórzPlikToolStripMenuItem";
-            this.otwórzPlikToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.otwórzPlikToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.otwórzPlikToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.otwórzPlikToolStripMenuItem.Text = "Otwórz Plik...";
             // 
             // otwórzFolderToolStripMenuItem
             // 
             this.otwórzFolderToolStripMenuItem.Name = "otwórzFolderToolStripMenuItem";
-            this.otwórzFolderToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.otwórzFolderToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.otwórzFolderToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.otwórzFolderToolStripMenuItem.Text = "Otwórz Folder...";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(196, 6);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
+            this.toolStripMenuItem1.Text = "Zapisz";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(196, 6);
             // 
             // zamknijToolStripMenuItem
             // 
             this.zamknijToolStripMenuItem.Name = "zamknijToolStripMenuItem";
-            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.zamknijToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.zamknijToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.zamknijToolStripMenuItem.Text = "Zamknij";
+            this.zamknijToolStripMenuItem.Click += new System.EventHandler(this.zamknijToolStripMenuItem_Click);
             // 
             // edycjaToolStripMenuItem
             // 
@@ -221,11 +288,49 @@
             this.narzędziaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.narzędziaToolStripMenuItem.Text = "Narzędzia";
             // 
+            // infoToolStripMenuItem
+            // 
+            this.infoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aktualizacjeToolStripMenuItem,
+            this.oProgramieToolStripMenuItem});
+            this.infoToolStripMenuItem.Name = "infoToolStripMenuItem";
+            this.infoToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.infoToolStripMenuItem.Text = "Info";
+            // 
+            // aktualizacjeToolStripMenuItem
+            // 
+            this.aktualizacjeToolStripMenuItem.Name = "aktualizacjeToolStripMenuItem";
+            this.aktualizacjeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.aktualizacjeToolStripMenuItem.Text = "Aktualizacje...";
+            // 
+            // oProgramieToolStripMenuItem
+            // 
+            this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.oProgramieToolStripMenuItem.Text = "O Programie";
+            // 
             // pomocToolStripMenuItem
             // 
+            this.pomocToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.indeksPomocyToolStripMenuItem,
+            this.fAQToolStripMenuItem});
             this.pomocToolStripMenuItem.Name = "pomocToolStripMenuItem";
             this.pomocToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.pomocToolStripMenuItem.Text = "Pomoc";
+            // 
+            // indeksPomocyToolStripMenuItem
+            // 
+            this.indeksPomocyToolStripMenuItem.Name = "indeksPomocyToolStripMenuItem";
+            this.indeksPomocyToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F10;
+            this.indeksPomocyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.indeksPomocyToolStripMenuItem.Text = "Indeks Pomocy";
+            // 
+            // fAQToolStripMenuItem
+            // 
+            this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
+            this.fAQToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11;
+            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fAQToolStripMenuItem.Text = "FAQ";
             // 
             // Form1
             // 
@@ -239,6 +344,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
+            this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "TagMainWindow";
@@ -264,9 +370,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileTagType;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem właściwościToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;
@@ -280,6 +383,21 @@
         private System.Windows.Forms.ToolStripMenuItem edycjaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem narzędziaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pomocToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem infoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aktualizacjeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oProgramieToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indeksPomocyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fAQToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileOrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileTagType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileArtist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
 
     }
 }
