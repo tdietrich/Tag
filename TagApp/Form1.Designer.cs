@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.directoryTextBox = new System.Windows.Forms.TextBox();
+            this.addDirBut = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.FileOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -41,7 +42,7 @@
             this.FileNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button2 = new System.Windows.Forms.Button();
+            this.clearTableBut = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.właściwościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -74,8 +75,8 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.directoryTextBox);
+            this.groupBox1.Controls.Add(this.addDirBut);
             this.groupBox1.Location = new System.Drawing.Point(12, 24);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(243, 516);
@@ -83,22 +84,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ładowanie Pliku";
             // 
-            // textBox1
+            // directoryTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(7, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(230, 20);
-            this.textBox1.TabIndex = 1;
+            this.directoryTextBox.Location = new System.Drawing.Point(7, 37);
+            this.directoryTextBox.Name = "directoryTextBox";
+            this.directoryTextBox.Size = new System.Drawing.Size(230, 20);
+            this.directoryTextBox.TabIndex = 1;
             // 
-            // button1
+            // addDirBut
             // 
-            this.button1.Location = new System.Drawing.Point(162, 74);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Dodaj folder";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.addDirBut.Location = new System.Drawing.Point(162, 74);
+            this.addDirBut.Name = "addDirBut";
+            this.addDirBut.Size = new System.Drawing.Size(75, 23);
+            this.addDirBut.TabIndex = 0;
+            this.addDirBut.Text = "Dodaj folder";
+            this.addDirBut.UseVisualStyleBackColor = true;
+            this.addDirBut.Click += new System.EventHandler(this.button1_Click);
             // 
             // groupBox2
             // 
@@ -112,6 +113,15 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -167,14 +177,14 @@
             this.FilePath.Name = "FilePath";
             this.FilePath.ReadOnly = true;
             // 
-            // button2
+            // clearTableBut
             // 
-            this.button2.Location = new System.Drawing.Point(880, 541);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(153, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Wyczyść tabelę";
-            this.button2.UseVisualStyleBackColor = true;
+            this.clearTableBut.Location = new System.Drawing.Point(880, 541);
+            this.clearTableBut.Name = "clearTableBut";
+            this.clearTableBut.Size = new System.Drawing.Size(153, 23);
+            this.clearTableBut.TabIndex = 2;
+            this.clearTableBut.Text = "Wyczyść tabelę";
+            this.clearTableBut.UseVisualStyleBackColor = true;
             // 
             // contextMenuStrip1
             // 
@@ -301,13 +311,13 @@
             // aktualizacjeToolStripMenuItem
             // 
             this.aktualizacjeToolStripMenuItem.Name = "aktualizacjeToolStripMenuItem";
-            this.aktualizacjeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.aktualizacjeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aktualizacjeToolStripMenuItem.Text = "Aktualizacje...";
             // 
             // oProgramieToolStripMenuItem
             // 
             this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
-            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oProgramieToolStripMenuItem.Text = "O Programie";
             // 
             // pomocToolStripMenuItem
@@ -344,7 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1048, 598);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.clearTableBut);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
@@ -371,10 +381,10 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox directoryTextBox;
+        private System.Windows.Forms.Button addDirBut;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button clearTableBut;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem właściwościToolStripMenuItem;
         private System.Windows.Forms.StatusStrip statusStrip1;

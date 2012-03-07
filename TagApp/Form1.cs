@@ -17,6 +17,8 @@ namespace TagApp
             InitializeComponent();
         }
 
+
+        #region Events & Handlers To GUI
         ////
         // Przycisk Zamknij - Dodać w przyszłości obsługę "Czy chcesz zapisać zmiany przed zamknięciem?"
         //
@@ -30,7 +32,7 @@ namespace TagApp
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if (this.textBox1.TextLength != 0)
+            if (this.directoryTextBox.TextLength != 0)
             {
                 //Jeżeli podano jakis path to sproboj zaladować path
                 
@@ -41,6 +43,7 @@ namespace TagApp
             }
             //END IFELSE
         }
+        #endregion
 
     }
 }
