@@ -7,3 +7,6 @@ C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.exe
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.pdb
+C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.dll
+C:\Users\Tomek\Tag\TagApp\bin\Debug\taglib-sharp.dll
+C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.config
