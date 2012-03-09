@@ -1,7 +1,6 @@
 C:\Users\Tomek\Tag\TagApp\bin\Debug\TagApp.exe
 C:\Users\Tomek\Tag\TagApp\bin\Debug\TagApp.pdb
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\ResolveAssemblyReference.cache
-C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.Form1.resources
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.Properties.Resources.resources
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\GenerateResource.read.1.tlog
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\GenerateResource.write.1.tlog
@@ -10,3 +9,4 @@ C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.pdb
 C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.dll
 C:\Users\Tomek\Tag\TagApp\bin\Debug\taglib-sharp.dll
 C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.config
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.FileManagement.Mp3File.resources

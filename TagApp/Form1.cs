@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,6 +11,39 @@ using TagLib;
 
 namespace TagApp
 {
+    namespace FileManagement
+    {
+        public class Mp3File
+        {
+            #region Constructors
+            public Mp3File(string IPath)
+            { 
+            
+            }
+            public Mp3File()
+            {
+            
+            }
+            #endregion
+
+            #region Private Fields
+            private string path;
+            private bool edited;
+            private bool savedChanges;
+            #endregion
+
+
+
+
+        };
+        public class Directory 
+        { 
+        
+        
+        
+        };
+
+    }
     public partial class Form1 : Form
     {
         public Form1()
@@ -17,13 +51,12 @@ namespace TagApp
             InitializeComponent();
         }
 
-
         #region Events & Handlers To GUI
         ////
         // Przycisk Zamknij - Dodać w przyszłości obsługę "Czy chcesz zapisać zmiany przed zamknięciem?"
         //
         private void zamknijToolStripMenuItem_Click(object sender, EventArgs e)
-        { 
+        {
             this.Close(); 
         }
         ////
@@ -47,3 +80,4 @@ namespace TagApp
 
     }
 }
+
