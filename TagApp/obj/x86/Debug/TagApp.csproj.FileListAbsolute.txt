@@ -10,3 +10,6 @@ C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.dll
 C:\Users\Tomek\Tag\TagApp\bin\Debug\taglib-sharp.dll
 C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.config
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.FileManagement.Mp3File.resources
+C:\Users\Tomek\Tag\TagApp\bin\Debug\en\TagApp.resources.dll
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.FileManagement.Mp3File.en.resources
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\en\TagApp.resources.dll
