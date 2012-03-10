@@ -44,6 +44,7 @@ namespace TagApp
         };
 
     }
+
     public partial class Form1 : Form
     {
         public Form1()
@@ -68,15 +69,16 @@ namespace TagApp
             if (this.directoryTextBox.TextLength != 0)
             {
                 //Jeżeli podano jakis path to sproboj zaladować path
-                
             }
             else //Jeżeli pole do wpisania jest puste to otwórz okno przeglądaj
             {
+             
                 folderBrowserDialog1.ShowDialog();
             }
             //END IFELSE
         }
         #endregion
+
     }
 }
 
