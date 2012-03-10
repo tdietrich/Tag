@@ -11,6 +11,7 @@ using TagLib;
 
 namespace TagApp
 {
+    #region nasze klasy
     namespace FileManagement
     {
         public class Mp3File
@@ -24,26 +25,39 @@ namespace TagApp
             {
             
             }
-     
 
-           
             private string path;
             private bool edited;
             private bool savedChanges;
-            
-
-
-
-
+           
         };
         public class Directory 
-        { 
+        {
+            public Directory(string Ppath) { }
+            public Directory() { }
+
+            private int numberOfFilesIn;
+
         
         
         
         };
 
     }
+    class AppUser
+    {
+        public AppUser() { }
+
+        //loaded from file while opening app
+        private string[] commonUsedDirs;
+        private Template[] userTagTemplates;
+    };
+    class Template
+    {
+
+
+    };
+    #endregion
 
     public partial class Form1 : Form
     {
