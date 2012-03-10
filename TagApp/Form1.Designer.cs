@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.directoryTextBox = new System.Windows.Forms.TextBox();
             this.addDirBut = new System.Windows.Forms.Button();
@@ -58,6 +58,10 @@
             this.zamknijToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.edycjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narzędziaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.szablonyTagówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajNowySzablonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.edytujSzablonyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.normalizatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualizacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,14 +118,14 @@
             // dataGridView1
             // 
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -295,9 +299,40 @@
             // 
             // narzędziaToolStripMenuItem
             // 
+            this.narzędziaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.szablonyTagówToolStripMenuItem,
+            this.normalizatorToolStripMenuItem});
             this.narzędziaToolStripMenuItem.Name = "narzędziaToolStripMenuItem";
             this.narzędziaToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.narzędziaToolStripMenuItem.Text = "Narzędzia";
+            // 
+            // szablonyTagówToolStripMenuItem
+            // 
+            this.szablonyTagówToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dodajNowySzablonToolStripMenuItem,
+            this.edytujSzablonyToolStripMenuItem});
+            this.szablonyTagówToolStripMenuItem.Name = "szablonyTagówToolStripMenuItem";
+            this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.szablonyTagówToolStripMenuItem.Text = "Szablony Tagów";
+            // 
+            // dodajNowySzablonToolStripMenuItem
+            // 
+            this.dodajNowySzablonToolStripMenuItem.Name = "dodajNowySzablonToolStripMenuItem";
+            this.dodajNowySzablonToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.dodajNowySzablonToolStripMenuItem.Text = "Dodaj Nowy Szablon";
+            // 
+            // edytujSzablonyToolStripMenuItem
+            // 
+            this.edytujSzablonyToolStripMenuItem.Enabled = false;
+            this.edytujSzablonyToolStripMenuItem.Name = "edytujSzablonyToolStripMenuItem";
+            this.edytujSzablonyToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.edytujSzablonyToolStripMenuItem.Text = "Edytuj Istniejace Szablony";
+            // 
+            // normalizatorToolStripMenuItem
+            // 
+            this.normalizatorToolStripMenuItem.Name = "normalizatorToolStripMenuItem";
+            this.normalizatorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.normalizatorToolStripMenuItem.Text = "Normalizator Tagów";
             // 
             // infoToolStripMenuItem
             // 
@@ -311,13 +346,13 @@
             // aktualizacjeToolStripMenuItem
             // 
             this.aktualizacjeToolStripMenuItem.Name = "aktualizacjeToolStripMenuItem";
-            this.aktualizacjeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aktualizacjeToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.aktualizacjeToolStripMenuItem.Text = "Aktualizacje...";
             // 
             // oProgramieToolStripMenuItem
             // 
             this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
-            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
             this.oProgramieToolStripMenuItem.Text = "O Programie";
             // 
             // pomocToolStripMenuItem
@@ -414,6 +449,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FileTitle;
         private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ToolStripMenuItem szablonyTagówToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dodajNowySzablonToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem edytujSzablonyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem normalizatorToolStripMenuItem;
 
     }
 }

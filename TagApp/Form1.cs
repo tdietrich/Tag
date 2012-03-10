@@ -15,8 +15,8 @@ namespace TagApp
     {
         public class Mp3File
         {
-            #region Constructors
-            public Mp3File(string IPath)
+            
+            public Mp3File(string Ppath)
             { 
             
             }
@@ -24,13 +24,13 @@ namespace TagApp
             {
             
             }
-            #endregion
+     
 
-            #region Private Fields
+           
             private string path;
             private bool edited;
             private bool savedChanges;
-            #endregion
+            
 
 
 
@@ -77,7 +77,6 @@ namespace TagApp
             //END IFELSE
         }
         #endregion
-
     }
 }
 
