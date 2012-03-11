@@ -12,8 +12,7 @@ using TagLib;
 namespace TagApp
 {
     /*
-     PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML 
-     * wersja dokumentacji: v0.1
+     PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML //generowany - updatowany za kazdym Buildem
      */
     public partial class Form1 : Form
     {
@@ -48,7 +47,6 @@ namespace TagApp
             //END IFELSE
         }
         #endregion
-
 
 
     }

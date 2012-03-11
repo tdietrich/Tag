@@ -80,12 +80,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSize = true;
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.isFilePathGiven);
             this.groupBox1.Controls.Add(this.directoryTextBox);
             this.groupBox1.Controls.Add(this.addDirBut);
-            this.groupBox1.Location = new System.Drawing.Point(12, 24);
+            this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 516);
+            this.groupBox1.Size = new System.Drawing.Size(243, 142);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ładowanie Pliku";
@@ -95,9 +97,9 @@
             this.isFilePathGiven.AutoSize = true;
             this.isFilePathGiven.Location = new System.Drawing.Point(7, 113);
             this.isFilePathGiven.Name = "isFilePathGiven";
-            this.isFilePathGiven.Size = new System.Drawing.Size(102, 13);
+            this.isFilePathGiven.Size = new System.Drawing.Size(94, 13);
             this.isFilePathGiven.TabIndex = 2;
-            this.isFilePathGiven.Text = "No Path/Directory...";
+            this.isFilePathGiven.Text = "Brak Pliku/Ścieżki";
             // 
             // directoryTextBox
             // 
@@ -118,16 +120,21 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.AutoSize = true;
+            this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(261, 24);
+            this.groupBox2.Location = new System.Drawing.Point(261, 22);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 516);
+            this.groupBox2.Size = new System.Drawing.Size(775, 529);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Szczegóły Pliku";
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowDrop = true;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -194,7 +201,7 @@
             // 
             // clearTableBut
             // 
-            this.clearTableBut.Location = new System.Drawing.Point(880, 541);
+            this.clearTableBut.Location = new System.Drawing.Point(883, 566);
             this.clearTableBut.Name = "clearTableBut";
             this.clearTableBut.Size = new System.Drawing.Size(153, 23);
             this.clearTableBut.TabIndex = 2;
@@ -219,7 +226,7 @@
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1,
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 576);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 592);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1048, 22);
             this.statusStrip1.TabIndex = 4;
@@ -228,8 +235,8 @@
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(49, 17);
-            this.toolStripStatusLabel1.Text = "No Jobs";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(66, 17);
+            this.toolStripStatusLabel1.Text = "Brak Zadań";
             // 
             // toolStripProgressBar1
             // 
@@ -323,8 +330,8 @@
             this.dodajNowySzablonToolStripMenuItem,
             this.edytujSzablonyToolStripMenuItem});
             this.szablonyTagówToolStripMenuItem.Name = "szablonyTagówToolStripMenuItem";
-            this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.szablonyTagówToolStripMenuItem.Text = "Szablony Tagów";
+            this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.szablonyTagówToolStripMenuItem.Text = "Szablony Nazewnictwa";
             // 
             // dodajNowySzablonToolStripMenuItem
             // 
@@ -342,7 +349,7 @@
             // normalizatorToolStripMenuItem
             // 
             this.normalizatorToolStripMenuItem.Name = "normalizatorToolStripMenuItem";
-            this.normalizatorToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.normalizatorToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.normalizatorToolStripMenuItem.Text = "Normalizator Tagów";
             // 
             // infoToolStripMenuItem
@@ -398,10 +405,11 @@
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1048, 598);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1048, 614);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.clearTableBut);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.clearTableBut);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
