@@ -13,6 +13,7 @@ namespace TagApp
 {
     /*
      PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML 
+     * wersja dokumentacji: v0.1
      */
     public partial class Form1 : Form
     {
@@ -117,7 +118,7 @@ namespace TagApp
 
     /// <summary>
     /// Obiekt tej klasy byłby elementem tablicy obiektu klasy Appuser <see cref="AppUser"/> uzywanych templejtów, 
-    /// każdy obiekt typu template <see cref="Template"/> Posiada w sobie:
+    /// każdy obiekt typu template <see cref="Template"/> Posiada w sobie(na razie):
     ///     - Format szablonu
     /// </summary>
     class Template

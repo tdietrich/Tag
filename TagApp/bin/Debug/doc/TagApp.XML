@@ -64,7 +64,7 @@
         <member name="T:TagApp.Template">
             <summary>
             Obiekt tej klasy byłby elementem tablicy obiektu klasy Appuser <see cref="T:TagApp.AppUser"/> uzywanych templejtów, 
-            każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie:
+            każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie(na razie):
                 - Format szablonu
             </summary>
         </member>
