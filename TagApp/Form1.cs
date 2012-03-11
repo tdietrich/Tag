@@ -11,54 +11,9 @@ using TagLib;
 
 namespace TagApp
 {
-    #region nasze klasy
-    namespace FileManagement
-    {
-        public class Mp3File
-        {
-            
-            public Mp3File(string Ppath)
-            { 
-            
-            }
-            public Mp3File()
-            {
-            
-            }
-
-            private string path;
-            private bool edited;
-            private bool savedChanges;
-           
-        };
-        public class Directory 
-        {
-            public Directory(string Ppath) { }
-            public Directory() { }
-
-            private int numberOfFilesIn;
-
-        
-        
-        
-        };
-
-    }
-    class AppUser
-    {
-        public AppUser() { }
-
-        //loaded from file while opening app
-        private string[] commonUsedDirs;
-        private Template[] userTagTemplates;
-    };
-    class Template
-    {
-
-
-    };
-    #endregion
-
+    /*
+     PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML 
+     */
     public partial class Form1 : Form
     {
         public Form1()
@@ -96,5 +51,86 @@ namespace TagApp
 
 
     }
+
+    #region nasze klasy
+    
+    /// <summary>
+    /// Obiekt klasy Mp3File byłby abstrakcyjną reprezentacją rzeczywistego pliku mp3 z dysku. Na nim odbywałyby się wszystkie
+    /// operacje edycji tagów itp. Następnie zmiany zapisywane byłyby na dysk do pliku,
+    /// 
+    /// </summary>
+    public class Mp3File
+        {
+
+            public Mp3File(string Ppath)
+            {
+
+            }
+            public Mp3File()
+            {
+
+            }
+
+            private string path;
+            private bool edited;
+            private bool savedChanges;
+
+
+        };
+
+
+
+
+    /// <summary>
+    /// Obiekt klasy Directory byłby abstrakcyjną reprezentacją folderu podanego do programu. Szczerze nie jestem pewien
+    /// czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
+    /// plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku. DO PRZEDYSKUTOWANIA
+    /// </summary>
+    public class Directory
+        {
+            public Directory(string Ppath) { }
+            public Directory() { }
+
+            private int numberOfFilesIn;
+        };
+
+
+
+    /// <summary>
+    ///  Obiekt tej klasy reprezentowałby użytkownika aplikacji, do niego po pierwszym użyciu
+    ///  wczytywało by się, używane często ścieżki plików, zapisane templejty <see cref=" Template"/> nazewnictwa tagów itp.
+    ///  Ta klasa NIE oznacza stworzenia kilku "kont" userów w programie. Klasa posiada:
+    ///     - Std konstruktory
+    ///     - Tablica używanych często ścieżek
+    ///     - Tablica stworzonych templejtów nazewnictwa
+    /// </summary>
+    class AppUser
+    {
+        public AppUser() { }
+
+        //loaded from file while opening app
+        private string[] commonUsedDirs; //do podpowiedzi ostatnio uzywanych sciezek
+        private Template[] userTagTemplates; // do wczytania zapisanych wczesniej templejtów tagów użytkownika
+    };
+
+
+
+    /// <summary>
+    /// Obiekt tej klasy byłby elementem tablicy obiektu klasy Appuser <see cref="AppUser"/> uzywanych templejtów, 
+    /// każdy obiekt typu template <see cref="Template"/> Posiada w sobie:
+    ///     - Format szablonu
+    /// </summary>
+    class Template
+    {
+        public Template(string temp) { }
+        public Template() { }
+
+        private string format; // rzeczywisty templejt tzn string o wygladzie np " $Artist - $SongName  $Number ";
+
+
+
+    };
+    #endregion
+
 }
 
