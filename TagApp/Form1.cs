@@ -48,14 +48,14 @@ namespace TagApp
         }
         #endregion
 
-
     }
 
     #region nasze klasy
     
     /// <summary>
     /// Obiekt klasy Mp3File byłby abstrakcyjną reprezentacją rzeczywistego pliku mp3 z dysku. Na nim odbywałyby się wszystkie
-    /// operacje edycji tagów itp. Następnie zmiany zapisywane byłyby na dysk do pliku,
+    /// operacje edycji tagów itp. Następnie zmiany zapisywane byłyby na dysk do pliku. Będzie agregowal obiekt Taglib (?) 
+    /// Nie ogarnalem jeszcze tej biblio tak, zeby kumac jak działa
     /// 
     /// </summary>
     public class Mp3File
@@ -79,11 +79,10 @@ namespace TagApp
 
 
 
-
     /// <summary>
     /// Obiekt klasy Directory byłby abstrakcyjną reprezentacją folderu podanego do programu. Szczerze nie jestem pewien
     /// czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
-    /// plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku. DO PRZEDYSKUTOWANIA
+    /// plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku.
     /// </summary>
     public class Directory
         {
@@ -109,7 +108,7 @@ namespace TagApp
 
         //loaded from file while opening app
         private string[] commonUsedDirs; //do podpowiedzi ostatnio uzywanych sciezek
-        private Template[] userTagTemplates; // do wczytania zapisanych wczesniej templejtów tagów użytkownika
+        private Template[] userTagTemplates; // do wczytania zapisanych wczesniej templejtów tagów użytkownika + tworzone podczas programu tu sie zapisza
     };
 
 
@@ -125,10 +124,21 @@ namespace TagApp
         public Template() { }
 
         private string format; // rzeczywisty templejt tzn string o wygladzie np " $Artist - $SongName  $Number ";
-
-
-
     };
+
+
+
+    /// <summary>
+    /// Statyczna klasa normalizator, działałaby na plikach(Mp3File?) i ich nazwach/tagach takich jak artysta czy cos.
+    /// Wykonywałaby sprawdzenie literówek/małych różnic w nazwach /tagach konkretnych i według zalecen użytkownika Normalizowała je.
+    /// </summary>
+    static class Normalizator 
+    {
+        public static void /*string[]*/ findDifferences(Mp3File[] fileToSearch) { }
+        public static void normalize(Mp3File[] filesToNormalize) { }
+    
+    };
+
     #endregion
 
 }
