@@ -30,23 +30,21 @@ namespace TagApp
             this.Close(); 
         }
         ////
-        // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane
+        // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
+        // i wypisywanie nizej
         //
         private void button1_Click(object sender, EventArgs e)
         {
-            
-            if (this.directoryTextBox.TextLength != 0)
-            {
-                //Jeżeli podano jakis path to sproboj zaladować path
-            }
-            else //Jeżeli pole do wpisania jest puste to otwórz okno przeglądaj
-            {
-             
-                folderBrowserDialog1.ShowDialog();
-            }
-            //END IFELSE
+               DialogResult result = folderBrowserDialog1.ShowDialog();
+               if (result == DialogResult.OK) // jezeli wybrano folder
+               {
+                   directoryTextBox.Text = folderBrowserDialog1.SelectedPath;//wpissz do texboxa wybrany folder
+                   isFilePathGiven.Text = folderBrowserDialog1.SelectedPath;
+
+               }
         }
         #endregion
+
 
     }
 
