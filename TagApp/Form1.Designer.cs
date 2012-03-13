@@ -29,8 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filesListingrichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.isFilePathGiven = new System.Windows.Forms.Label();
             this.directoryTextBox = new System.Windows.Forms.TextBox();
             this.addDirBut = new System.Windows.Forms.Button();
@@ -80,26 +82,46 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.AutoSize = true;
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.filesListingrichTextBox1);
             this.groupBox1.Controls.Add(this.isFilePathGiven);
             this.groupBox1.Controls.Add(this.directoryTextBox);
             this.groupBox1.Controls.Add(this.addDirBut);
             this.groupBox1.Location = new System.Drawing.Point(12, 22);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(243, 142);
+            this.groupBox1.Size = new System.Drawing.Size(243, 470);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Ładowanie Pliku";
+            this.groupBox1.Text = "Ładowanie Folderu";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 169);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(103, 13);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Pliki mp3 w Folderze";
+            // 
+            // filesListingrichTextBox1
+            // 
+            this.filesListingrichTextBox1.AutoWordSelection = true;
+            this.filesListingrichTextBox1.Location = new System.Drawing.Point(6, 188);
+            this.filesListingrichTextBox1.Name = "filesListingrichTextBox1";
+            this.filesListingrichTextBox1.ReadOnly = true;
+            this.filesListingrichTextBox1.Size = new System.Drawing.Size(230, 165);
+            this.filesListingrichTextBox1.TabIndex = 6;
+            this.filesListingrichTextBox1.Text = "";
             // 
             // isFilePathGiven
             // 
             this.isFilePathGiven.AutoSize = true;
             this.isFilePathGiven.Location = new System.Drawing.Point(7, 113);
             this.isFilePathGiven.Name = "isFilePathGiven";
-            this.isFilePathGiven.Size = new System.Drawing.Size(94, 13);
+            this.isFilePathGiven.Size = new System.Drawing.Size(66, 13);
             this.isFilePathGiven.TabIndex = 2;
-            this.isFilePathGiven.Text = "Brak Pliku/Ścieżki";
+            this.isFilePathGiven.Text = "Brak Ścieżki";
             // 
             // directoryTextBox
             // 
@@ -128,7 +150,7 @@
             this.groupBox2.Size = new System.Drawing.Size(775, 529);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Szczegóły Pliku";
+            this.groupBox2.Text = "Szczegóły Plików";
             // 
             // dataGridView1
             // 
@@ -136,14 +158,14 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -473,6 +495,8 @@
         private System.Windows.Forms.ToolStripMenuItem edytujSzablonyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalizatorToolStripMenuItem;
         private System.Windows.Forms.Label isFilePathGiven;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox filesListingrichTextBox1;
 
     }
 }
