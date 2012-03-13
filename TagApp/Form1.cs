@@ -31,7 +31,7 @@ namespace TagApp
         }
         ////
         // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
-        // i wypisywanie nizej
+        // i wypisywanie nizej w rich text boxie
         //
         private void button1_Click(object sender, EventArgs e)
         {
@@ -40,7 +40,23 @@ namespace TagApp
                {
                    directoryTextBox.Text = folderBrowserDialog1.SelectedPath;//wpissz do texboxa wybrany folder
                    isFilePathGiven.Text = folderBrowserDialog1.SelectedPath;
+                   filesListingrichTextBox1.Text = "";
 
+                   string[] filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
+
+                   //RICH TEXT BOX POMOCNY TYLKO BEDZIE PODCZAS DEV. POZNIEJ CHYBA DO WYKASOWANIA
+                   if (filePaths.GetLength(0) != 0)
+                   {
+                       foreach (string element in filePaths)
+                       {
+                           filesListingrichTextBox1.AppendText(element + "\n");
+
+                       }
+
+                   }
+
+
+                   
                }
         }
         #endregion
@@ -82,10 +98,10 @@ namespace TagApp
     /// czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
     /// plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku.
     /// </summary>
-    public class Directory
+    public class OurDirectory
         {
-            public Directory(string Ppath) { }
-            public Directory() { }
+            public OurDirectory(string Ppath) { }
+            public OurDirectory() { }
 
             private int numberOfFilesIn;
         };

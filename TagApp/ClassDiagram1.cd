@@ -3,11 +3,11 @@
   <Class Name="TagApp.Form1">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EQgAQAmAACBFCACCgAGBQAACAjgCDAgACORAQaBgABU=</HashCode>
+      <HashCode>EQgAQAmAACBFCBCCgAGBQAACAjgCDAgACORQQaBgABU=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="TagApp.Directory">
+  <Class Name="TagApp.OurDirectory">
     <Position X="5.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
@@ -31,7 +31,7 @@
   <Class Name="TagApp.Normalizator">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Form1.cs</FileName>
     </TypeIdentifier>
   </Class>

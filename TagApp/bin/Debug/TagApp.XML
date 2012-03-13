@@ -45,7 +45,7 @@
             
             </summary>
         </member>
-        <member name="T:TagApp.Directory">
+        <member name="T:TagApp.OurDirectory">
             <summary>
             Obiekt klasy Directory byłby abstrakcyjną reprezentacją folderu podanego do programu. Szczerze nie jestem pewien
             czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
