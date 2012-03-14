@@ -1,6 +1,6 @@
 ﻿namespace TagApp
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -31,13 +31,14 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ifSubfolders = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.filesListingrichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.isFilePathGiven = new System.Windows.Forms.Label();
             this.directoryTextBox = new System.Windows.Forms.TextBox();
             this.addDirBut = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.mainGrid = new System.Windows.Forms.DataGridView();
             this.FileOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FileTagType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,10 +73,9 @@
             this.indeksPomocyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.ifSubfolders = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -96,6 +96,16 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ładowanie Folderu";
+            // 
+            // ifSubfolders
+            // 
+            this.ifSubfolders.AutoSize = true;
+            this.ifSubfolders.Location = new System.Drawing.Point(7, 69);
+            this.ifSubfolders.Name = "ifSubfolders";
+            this.ifSubfolders.Size = new System.Drawing.Size(134, 17);
+            this.ifSubfolders.TabIndex = 8;
+            this.ifSubfolders.Text = "Szukaj w podfolderach";
+            this.ifSubfolders.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -134,7 +144,7 @@
             // 
             // addDirBut
             // 
-            this.addDirBut.Location = new System.Drawing.Point(162, 74);
+            this.addDirBut.Location = new System.Drawing.Point(161, 63);
             this.addDirBut.Name = "addDirBut";
             this.addDirBut.Size = new System.Drawing.Size(75, 23);
             this.addDirBut.TabIndex = 0;
@@ -146,20 +156,20 @@
             // 
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Controls.Add(this.mainGrid);
             this.groupBox2.Location = new System.Drawing.Point(261, 22);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(775, 529);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Szczegóły Plików";
+            this.groupBox2.Text = "Szczegóły plików";
             // 
-            // dataGridView1
+            // mainGrid
             // 
-            this.dataGridView1.AllowDrop = true;
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.mainGrid.AllowDrop = true;
+            this.mainGrid.AllowUserToAddRows = false;
+            this.mainGrid.AllowUserToDeleteRows = false;
+            this.mainGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -167,9 +177,9 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.mainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
             this.FileName,
             this.FileTagType,
@@ -177,10 +187,11 @@
             this.FileNum,
             this.FileTitle,
             this.FilePath});
-            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(762, 490);
-            this.dataGridView1.TabIndex = 0;
+            this.mainGrid.Location = new System.Drawing.Point(7, 20);
+            this.mainGrid.Name = "mainGrid";
+            this.mainGrid.Size = new System.Drawing.Size(762, 490);
+            this.mainGrid.TabIndex = 0;
+            this.mainGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // FileOrderNumber
             // 
@@ -424,17 +435,7 @@
             // 
             this.folderBrowserDialog1.ShowNewFolderButton = false;
             // 
-            // ifSubfolders
-            // 
-            this.ifSubfolders.AutoSize = true;
-            this.ifSubfolders.Location = new System.Drawing.Point(10, 107);
-            this.ifSubfolders.Name = "ifSubfolders";
-            this.ifSubfolders.Size = new System.Drawing.Size(134, 17);
-            this.ifSubfolders.TabIndex = 8;
-            this.ifSubfolders.Text = "Szukaj w podfolderach";
-            this.ifSubfolders.UseVisualStyleBackColor = true;
-            // 
-            // Form1
+            // MainWindow
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -449,12 +450,12 @@
             this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "TagMainWindow";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -471,7 +472,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox directoryTextBox;
         private System.Windows.Forms.Button addDirBut;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView mainGrid;
         private System.Windows.Forms.Button clearTableBut;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem właściwościToolStripMenuItem;
