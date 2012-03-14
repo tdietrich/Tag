@@ -11,8 +11,6 @@ C:\Users\Tomek\Tag\TagApp\bin\Debug\taglib-sharp.dll
 C:\Users\Tomek\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.config
 C:\Users\Tomek\Tag\TagApp\bin\Debug\en\TagApp.resources.dll
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\en\TagApp.resources.dll
-C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.Form1.resources
-C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.Form1.en.resources
 C:\Users\Tomek\Tag\TagApp\bin\Debug\doc\TagApp.XML
 C:\Users\Tomek\Tag\TagApp\bin\Debug\TagApp.XML
 I:\Programowanie\Tag\Tag\TagApp\bin\Debug\doc\TagApp.XML
@@ -32,3 +30,5 @@ I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.Form1.en.resources
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\GenerateResource.read.1.tlog
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\GenerateResource.write.1.tlog
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\en\TagApp.resources.dll
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.resources
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.en.resources

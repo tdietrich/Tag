@@ -4,23 +4,34 @@
         <name>TagApp</name>
     </assembly>
     <members>
-        <member name="M:TagApp.Program.Main">
+        <member name="T:TagApp.Properties.Resources">
             <summary>
-            The main entry point for the application.
+              A strongly-typed resource class, for looking up localized strings, etc.
             </summary>
         </member>
-        <member name="F:TagApp.Form1.components">
+        <member name="P:TagApp.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:TagApp.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="F:TagApp.MainWindow.components">
             <summary>
             Required designer variable.
             </summary>
         </member>
-        <member name="M:TagApp.Form1.Dispose(System.Boolean)">
+        <member name="M:TagApp.MainWindow.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:TagApp.Form1.InitializeComponent">
+        <member name="M:TagApp.MainWindow.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
@@ -64,20 +75,9 @@
             Wykonywałaby sprawdzenie literówek/małych różnic w nazwach /tagach konkretnych i według zalecen użytkownika Normalizowała je.
             </summary>
         </member>
-        <member name="T:TagApp.Properties.Resources">
+        <member name="M:TagApp.Program.Main">
             <summary>
-              A strongly-typed resource class, for looking up localized strings, etc.
-            </summary>
-        </member>
-        <member name="P:TagApp.Properties.Resources.ResourceManager">
-            <summary>
-              Returns the cached ResourceManager instance used by this class.
-            </summary>
-        </member>
-        <member name="P:TagApp.Properties.Resources.Culture">
-            <summary>
-              Overrides the current thread's CurrentUICulture property for all
-              resource lookups using this strongly typed resource class.
+            The main entry point for the application.
             </summary>
         </member>
     </members>
