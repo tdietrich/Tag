@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using TagLib;
 
 namespace TagApp
 {
@@ -14,10 +16,13 @@ namespace TagApp
     /// </summary>
     class Mp3File
     {
-        public Mp3File(string Ppath)
-        {
+        public Mp3File(string Ppath) {
+            TagLib.File plik = TagLib.File.Create(Ppath);
+
+            
 
         }
+
         public Mp3File()
         {
 

@@ -24,11 +24,11 @@ I:\Programowanie\Tag\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.dll
 I:\Programowanie\Tag\Tag\TagApp\bin\Debug\taglib-sharp.dll
 I:\Programowanie\Tag\Tag\TagApp\bin\Debug\policy.2.0.taglib-sharp.config
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\ResolveAssemblyReference.cache
-I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.Form1.resources
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.Properties.Resources.resources
-I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.Form1.en.resources
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\GenerateResource.read.1.tlog
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\GenerateResource.write.1.tlog
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\en\TagApp.resources.dll
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.resources
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.en.resources
+I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.resources
+I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.en.resources
