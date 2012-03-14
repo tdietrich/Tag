@@ -33,8 +33,13 @@ namespace TagApp
         // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
         // i wypisywanie nizej w rich text boxie
         //
+        //!!!!!!!Przypisac DO wyszukiwania nowy wątek, zeby nie lagowalo!!!!!
+        //!!!!!!!Przypisac DO wyszukiwania progress bara z dolnego panelu
+        //
         private void button1_Click(object sender, EventArgs e)
         {
+            int counter = 0;//zlicza ilosc plikow - to mozna zalatwic chyba System.IO funkcja jakas
+            string[] filePaths;
                DialogResult result = folderBrowserDialog1.ShowDialog();
                if (result == DialogResult.OK) // jezeli wybrano folder
                {
@@ -42,19 +47,22 @@ namespace TagApp
                    isFilePathGiven.Text = folderBrowserDialog1.SelectedPath;
                    filesListingrichTextBox1.Text = "";
 
-                   string[] filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
+                   //zdecyduj czy szukamy w subfolderach czy nie
+                   if (ifSubfolders.Checked) filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3", SearchOption.AllDirectories);
+                   else filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
 
                    //RICH TEXT BOX POMOCNY TYLKO BEDZIE PODCZAS DEV. POZNIEJ CHYBA DO WYKASOWANIA
                    if (filePaths.GetLength(0) != 0)
                    {
                        foreach (string element in filePaths)
                        {
+                           counter++;
                            filesListingrichTextBox1.AppendText(element + "\n");
 
                        }
-
+                      
                    }
-
+                   label1.Text = "Pliki mp3 w podanym folderze (" + counter.ToString() + ")";
 
                    
                }

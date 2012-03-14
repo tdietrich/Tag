@@ -72,6 +72,7 @@
             this.indeksPomocyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.ifSubfolders = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -83,6 +84,7 @@
             // groupBox1
             // 
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox1.Controls.Add(this.ifSubfolders);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.filesListingrichTextBox1);
             this.groupBox1.Controls.Add(this.isFilePathGiven);
@@ -117,7 +119,7 @@
             // isFilePathGiven
             // 
             this.isFilePathGiven.AutoSize = true;
-            this.isFilePathGiven.Location = new System.Drawing.Point(7, 113);
+            this.isFilePathGiven.Location = new System.Drawing.Point(7, 143);
             this.isFilePathGiven.Name = "isFilePathGiven";
             this.isFilePathGiven.Size = new System.Drawing.Size(66, 13);
             this.isFilePathGiven.TabIndex = 2;
@@ -422,6 +424,16 @@
             // 
             this.folderBrowserDialog1.ShowNewFolderButton = false;
             // 
+            // ifSubfolders
+            // 
+            this.ifSubfolders.AutoSize = true;
+            this.ifSubfolders.Location = new System.Drawing.Point(10, 107);
+            this.ifSubfolders.Name = "ifSubfolders";
+            this.ifSubfolders.Size = new System.Drawing.Size(134, 17);
+            this.ifSubfolders.TabIndex = 8;
+            this.ifSubfolders.Text = "Szukaj w podfolderach";
+            this.ifSubfolders.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -497,6 +509,7 @@
         private System.Windows.Forms.Label isFilePathGiven;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RichTextBox filesListingrichTextBox1;
+        private System.Windows.Forms.CheckBox ifSubfolders;
 
     }
 }
