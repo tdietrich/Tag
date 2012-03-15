@@ -19,7 +19,10 @@ namespace TagApp
         public MainWindow()
         {
             InitializeComponent();
+
         }
+
+        private AboutBox1 oProgramie;
 
         #region Events & Handlers To GUI
         ////
@@ -59,7 +62,7 @@ namespace TagApp
                     foreach (string element in filePaths)
                     {
                         counter++;
-                        // filesListingrichTextBox1.AppendText(element + "\n");
+                        filesListingrichTextBox1.AppendText(element + "\n");
 
                     }
 
@@ -70,19 +73,31 @@ namespace TagApp
             }
 
 
-            TagLib.File plik = TagLib.File.Create("I:\\abc.mp3");
+           // TagLib.File plik = TagLib.File.Create("I:\\abc.mp3");
 
-            this.filesListingrichTextBox1.AppendText(plik.Tag.Album);
+           // this.filesListingrichTextBox1.AppendText(plik.Tag.Album);
 
 
         }
-        #endregion
+        
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
+        private void oProgramieToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /*
+             * OBSLUGE KLIKNIECIA W O PROGRAMIE W PASKU MENU
+             Za kazdyym razem kiedy klikamy, tworzymy aboutbox. Nie pakujemy tego do konstruktora MainWindow, bo
+             * po przycisnieciu na boxie o programie, przycisku X,disposujemy ten obiekt, wiec za kazdym razem go musimy
+             * tworzyc na nowo przy wyswietlaniu. To chyba nie problem.
+             */
+            oProgramie = new AboutBox1();//construct
+            oProgramie.Show();//show
+        }
+        #endregion
     }
 }
 

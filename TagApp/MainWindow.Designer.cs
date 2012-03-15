@@ -405,8 +405,9 @@
             // oProgramieToolStripMenuItem
             // 
             this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
-            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.oProgramieToolStripMenuItem.Text = "O Programie";
+            this.oProgramieToolStripMenuItem.Click += new System.EventHandler(this.oProgramieToolStripMenuItem_Click);
             // 
             // pomocToolStripMenuItem
             // 

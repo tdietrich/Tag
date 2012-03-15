@@ -32,3 +32,4 @@ C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.resources
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.en.resources
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.resources
 I:\Programowanie\Tag\Tag\TagApp\obj\x86\Debug\TagApp.MainWindow.en.resources
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.AboutBox1.resources
