@@ -91,7 +91,7 @@ namespace TagApp
             /*
              * OBSLUGE KLIKNIECIA W O PROGRAMIE W PASKU MENU
              Za kazdyym razem kiedy klikamy, tworzymy aboutbox. Nie pakujemy tego do konstruktora MainWindow, bo
-             * po przycisnieciu na boxie o programie, przycisku X,disposujemy ten obiekt, wiec za kazdym razem go musimy
+             * po przycisnieciu na boxie o progr0amie, przycisku X,disposujemy ten obiekt, wiec za kazdym razem go musimy
              * tworzyc na nowo przy wyswietlaniu. To chyba nie problem.
              */
             oProgramie = new AboutBox1();//construct
