@@ -44,6 +44,22 @@
             plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku.
             </summary>
         </member>
+        <member name="F:TagApp.AboutBox1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.AboutBox1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:TagApp.AboutBox1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
         <member name="T:TagApp.Template">
             <summary>
             każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie(na razie):
@@ -61,22 +77,6 @@
         <member name="M:TagApp.Program.Main">
             <summary>
             The main entry point for the application.
-            </summary>
-        </member>
-        <member name="F:TagApp.AboutBox1.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.AboutBox1.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-        </member>
-        <member name="M:TagApp.AboutBox1.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
     </members>
