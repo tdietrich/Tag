@@ -16,7 +16,14 @@ namespace TagApp
      */
     public partial class MainWindow : Form
     {
-        List<TagLib.File> tablica;
+        static List<TagLib.File> tablica;
+        private AboutBox1 oProgramie;
+
+        /*
+         * Prototyp funkcji która dodawałaby do mainGrida kolejne mp3, np wybrane z folderu, a później
+         * pojedynczą wybraną przez użytkownika
+         */
+        public bool appendIntoMainGrid(/*Mp3File plik*/) { return true; }
 
         public MainWindow()
         {
@@ -25,7 +32,7 @@ namespace TagApp
 
         }
 
-        private AboutBox1 oProgramie;
+
 
         #region Events & Handlers To GUI
         ////
@@ -64,6 +71,7 @@ namespace TagApp
                 {
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
                 }
+                
                 if (filePaths.Length > 0)
                 {
                     foreach (string str in filePaths)
@@ -121,7 +129,7 @@ namespace TagApp
         {
             /*
              * OBSLUGE KLIKNIECIA W O PROGRAMIE W PASKU MENU
-             Za kazdyym razem kiedy klikamy, tworzymy aboutbox. Nie pakujemy tego do konstruktora MainWindow, bo
+             * Za kazdyym razem kiedy klikamy, tworzymy aboutbox. Nie pakujemy tego do konstruktora MainWindow, bo
              * po przycisnieciu na boxie o progr0amie, przycisku X,disposujemy ten obiekt, wiec za kazdym razem go musimy
              * tworzyc na nowo przy wyswietlaniu. To chyba nie problem.
              */
@@ -137,6 +145,7 @@ namespace TagApp
             DialogResult result = openFileDialog1.ShowDialog();//przypisanie wyników wyboru z okna wyboru 1 pliku
             if (result == DialogResult.OK) // Test result.
             {
+
 
             }
         }
