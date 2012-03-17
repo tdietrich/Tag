@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("TagApp")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Program edytujący Tagi plików mp3")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("TagApp")]
+[assembly: AssemblyCompany("Wild boars pack Inc.")]
+[assembly: AssemblyProduct("Mp3 Tag Editor")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Wild Boars Pack")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible 

@@ -20,6 +20,21 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="M:TagApp.MainWindow.appendIntoMainGrid(System.String[])">
+            <summary>
+            Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
+            Następnie wrzuca je do tablicy(listy) plików i przekazuje do mainGrida
+            </summary>
+            <param name="filePaths"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TagApp.MainWindow.appendIntoMainGrid(System.String)">
+            <summary>
+            Opcja Funkcji dla argumentu - pojedynczego stringa, a nie tablicy
+            </summary>
+            <param name="path"></param>
+            <returns></returns>
+        </member>
         <member name="F:TagApp.MainWindow.components">
             <summary>
             Required designer variable.

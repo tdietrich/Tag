@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using TagLib;
+using System.Threading;
 
 namespace TagApp
 {
@@ -19,17 +20,44 @@ namespace TagApp
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
 
-        /*
-         * Prototyp funkcji która dodawałaby do mainGrida kolejne mp3, np wybrane z folderu, a później
-         * pojedynczą wybraną przez użytkownika
-         */
-        public bool appendIntoMainGrid(/*Mp3File plik*/) { return true; }
+        /// <summary>
+        /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
+        /// Następnie wrzuca je do tablicy(listy) plików i przekazuje do mainGrida
+        /// </summary>
+        /// <param name="filePaths"></param>
+        /// <returns></returns>
+        public bool appendIntoMainGrid(string[] filePaths) 
+        {
+            if (filePaths.Length > 0)
+            {
+                foreach (string str in filePaths)
+                {
+                    string[] info = new string[5];          // utworzenie tablicy stringów żeby dodawać wierszami
 
+                    tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
+
+                    info[0] = tablica.First().Tag.FirstPerformer;
+                    info[1] = tablica.First().Tag.Album;
+                    info[2] = tablica.First().Tag.FirstGenre;
+                    info[3] = tablica.First().Tag.Title;
+                    info[4] = tablica.First().Tag.Year.ToString();
+
+                    mainGrid.Rows.Add(info);
+                }
+            }    
+            
+            return true; 
+        }
+        /// <summary>
+        /// Opcja Funkcji dla argumentu - pojedynczego stringa, a nie tablicy
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public bool appendIntoMainGrid(string path) { return true; }
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
             InitializeComponent();
-
         }
 
 
@@ -42,6 +70,8 @@ namespace TagApp
         {
             this.Close(); 
         }
+       
+        
         ////
         // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
         // i wypisywanie nizej w rich text boxie
@@ -60,7 +90,6 @@ namespace TagApp
             {
                 directoryTextBox.Text = folderBrowserDialog1.SelectedPath;//wpissz do texboxa wybrany folder
                 isFilePathGiven.Text = folderBrowserDialog1.SelectedPath;
-                filesListingrichTextBox1.Text = "";
 
                 //zdecyduj czy szukamy w subfolderach czy nie
                 if (ifSubfolders.Checked)
@@ -72,42 +101,10 @@ namespace TagApp
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
                 }
                 
-                if (filePaths.Length > 0)
-                {
-                    foreach (string str in filePaths)
-                    {
-                        string[] info = new string[5];          // utworzenie tablicy stringów żeby dodawać wierszami
-
-                        tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
-
-                        info[0] = tablica.First().Tag.FirstPerformer;
-                        info[1] = tablica.First().Tag.Album;
-                        info[2] = tablica.First().Tag.FirstGenre;
-                        info[3] = tablica.First().Tag.Title;
-                        info[4] = tablica.First().Tag.Year.ToString();
-
-                        mainGrid.Rows.Add(info);
-                    }
-                }
-                
-                
-                
-                
-                
-                
-                //RICH TEXT BOX POMOCNY TYLKO BEDZIE PODCZAS DEV. POZNIEJ CHYBA DO WYKASOWANIA
-                //if (filePaths.GetLength(0) != 0)
-                //{
-                //    foreach (string element in filePaths)
-                //    {
-                //        counter++;
-                //        filesListingrichTextBox1.AppendText(element + "\n");
-
-                //    }
-
-                //}
-                //label1.Text = "Pliki mp3 w podanym folderze (" + counter.ToString() + ")";
-
+                /*
+                 Tu w poprzedniej wersji byla petla foreach - zamienione na funkcje.
+                 */
+                appendIntoMainGrid(filePaths);
 
             }
 

@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ifSubfolders = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.filesListingrichTextBox1 = new System.Windows.Forms.RichTextBox();
             this.isFilePathGiven = new System.Windows.Forms.Label();
             this.directoryTextBox = new System.Windows.Forms.TextBox();
             this.addDirBut = new System.Windows.Forms.Button();
@@ -74,24 +73,29 @@
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.ifSubfolders);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.filesListingrichTextBox1);
             this.groupBox1.Controls.Add(this.isFilePathGiven);
             this.groupBox1.Controls.Add(this.directoryTextBox);
             this.groupBox1.Controls.Add(this.addDirBut);
-            this.groupBox1.Location = new System.Drawing.Point(12, 22);
+            this.groupBox1.Location = new System.Drawing.Point(12, 58);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(243, 470);
             this.groupBox1.TabIndex = 0;
@@ -108,29 +112,11 @@
             this.ifSubfolders.Text = "Szukaj w podfolderach";
             this.ifSubfolders.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 169);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(103, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Pliki mp3 w Folderze";
-            // 
-            // filesListingrichTextBox1
-            // 
-            this.filesListingrichTextBox1.AutoWordSelection = true;
-            this.filesListingrichTextBox1.Location = new System.Drawing.Point(6, 188);
-            this.filesListingrichTextBox1.Name = "filesListingrichTextBox1";
-            this.filesListingrichTextBox1.ReadOnly = true;
-            this.filesListingrichTextBox1.Size = new System.Drawing.Size(230, 165);
-            this.filesListingrichTextBox1.TabIndex = 6;
-            this.filesListingrichTextBox1.Text = "";
-            // 
             // isFilePathGiven
             // 
             this.isFilePathGiven.AutoSize = true;
-            this.isFilePathGiven.Location = new System.Drawing.Point(7, 143);
+            this.isFilePathGiven.ContextMenuStrip = this.contextMenuStrip1;
+            this.isFilePathGiven.Location = new System.Drawing.Point(4, 110);
             this.isFilePathGiven.Name = "isFilePathGiven";
             this.isFilePathGiven.Size = new System.Drawing.Size(66, 13);
             this.isFilePathGiven.TabIndex = 2;
@@ -158,9 +144,9 @@
             this.groupBox2.AutoSize = true;
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox2.Controls.Add(this.mainGrid);
-            this.groupBox2.Location = new System.Drawing.Point(261, 22);
+            this.groupBox2.Location = new System.Drawing.Point(261, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 529);
+            this.groupBox2.Size = new System.Drawing.Size(775, 441);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Szczegóły plików";
@@ -171,14 +157,14 @@
             this.mainGrid.AllowUserToAddRows = false;
             this.mainGrid.AllowUserToDeleteRows = false;
             this.mainGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -190,7 +176,7 @@
             this.FilePath});
             this.mainGrid.Location = new System.Drawing.Point(7, 20);
             this.mainGrid.Name = "mainGrid";
-            this.mainGrid.Size = new System.Drawing.Size(762, 490);
+            this.mainGrid.Size = new System.Drawing.Size(762, 402);
             this.mainGrid.TabIndex = 0;
             this.mainGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -441,7 +427,62 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "|*.mp3";
+            this.openFileDialog1.Filter = "*.mp3|*.MP3";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1,
+            this.toolStripButton2,
+            this.toolStripButton3,
+            this.toolStripSeparator3,
+            this.toolStripButton4});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1048, 25);
+            this.toolStrip1.TabIndex = 6;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // toolStripButton2
+            // 
+            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
+            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton2.Name = "toolStripButton2";
+            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
+            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton3.Name = "toolStripButton3";
+            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton3.Text = "toolStripButton3";
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
             // 
             // MainWindow
             // 
@@ -451,6 +492,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1048, 614);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.clearTableBut);
             this.Controls.Add(this.groupBox1);
@@ -469,6 +511,8 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,10 +560,14 @@
         private System.Windows.Forms.ToolStripMenuItem edytujSzablonyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalizatorToolStripMenuItem;
         private System.Windows.Forms.Label isFilePathGiven;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox filesListingrichTextBox1;
         private System.Windows.Forms.CheckBox ifSubfolders;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripButton2;
+        private System.Windows.Forms.ToolStripButton toolStripButton3;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripButton toolStripButton4;
 
     }
 }
