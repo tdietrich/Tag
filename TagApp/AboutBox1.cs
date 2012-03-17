@@ -103,7 +103,7 @@ namespace TagApp
 
         private void okButton_Click(object sender, EventArgs e)
         {
-            this.Close();//zamknij(DISPOSE), niszczy obiekt, po ponownym wcisnieciu o progrmaie, bedzie stworzony na nowo
+            this.Close();//zamknij=DISPOSE), niszczy obiekt, po ponownym wcisnieciu o progrmaie, bedzie stworzony na nowo
         }
     }
 }

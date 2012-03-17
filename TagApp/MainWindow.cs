@@ -98,7 +98,9 @@ namespace TagApp
             oProgramie.Show();//show
         }
         #endregion
-
+        /*
+         * Obsluga kliku wczytaj pojedynczy plik z menu na pasku
+         */
         private void otwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)//obsługa  kliknięcia w menu w otwórz plik
         {
             DialogResult result = openFileDialog1.ShowDialog();//przypisanie wyników wyboru z okna wyboru 1 pliku
