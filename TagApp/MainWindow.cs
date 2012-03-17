@@ -16,8 +16,11 @@ namespace TagApp
      */
     public partial class MainWindow : Form
     {
+        List<TagLib.File> tablica;
+
         public MainWindow()
         {
+            tablica = new List<TagLib.File>();
             InitializeComponent();
 
         }
@@ -53,21 +56,49 @@ namespace TagApp
                 filesListingrichTextBox1.Text = "";
 
                 //zdecyduj czy szukamy w subfolderach czy nie
-                if (ifSubfolders.Checked) filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3", SearchOption.AllDirectories);
-                else filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
-
-                //RICH TEXT BOX POMOCNY TYLKO BEDZIE PODCZAS DEV. POZNIEJ CHYBA DO WYKASOWANIA
-                if (filePaths.GetLength(0) != 0)
+                if (ifSubfolders.Checked)
                 {
-                    foreach (string element in filePaths)
-                    {
-                        counter++;
-                        filesListingrichTextBox1.AppendText(element + "\n");
-
-                    }
-
+                    filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3", SearchOption.AllDirectories);
                 }
-                label1.Text = "Pliki mp3 w podanym folderze (" + counter.ToString() + ")";
+                else
+                {
+                    filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
+                }
+                if (filePaths.Length > 0)
+                {
+                    foreach (string str in filePaths)
+                    {
+                        string[] info = new string[5];          // utworzenie tablicy stringów żeby dodawać wierszami
+
+                        tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
+
+                        info[0] = tablica.First().Tag.FirstPerformer;
+                        info[1] = tablica.First().Tag.Album;
+                        info[2] = tablica.First().Tag.FirstGenre;
+                        info[3] = tablica.First().Tag.Title;
+                        info[4] = tablica.First().Tag.Year.ToString();
+
+                        mainGrid.Rows.Add(info);
+                    }
+                }
+                
+                
+                
+                
+                
+                
+                //RICH TEXT BOX POMOCNY TYLKO BEDZIE PODCZAS DEV. POZNIEJ CHYBA DO WYKASOWANIA
+                //if (filePaths.GetLength(0) != 0)
+                //{
+                //    foreach (string element in filePaths)
+                //    {
+                //        counter++;
+                //        filesListingrichTextBox1.AppendText(element + "\n");
+
+                //    }
+
+                //}
+                //label1.Text = "Pliki mp3 w podanym folderze (" + counter.ToString() + ")";
 
 
             }
