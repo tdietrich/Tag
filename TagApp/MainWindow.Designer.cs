@@ -29,25 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ifSubfolders = new System.Windows.Forms.CheckBox();
             this.isFilePathGiven = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.właściwościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.directoryTextBox = new System.Windows.Forms.TextBox();
             this.addDirBut = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.mainGrid = new System.Windows.Forms.DataGridView();
-            this.FileOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileTagType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileArtist = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clearTableBut = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.właściwościToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
@@ -79,10 +72,17 @@
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
+            this.FileOrderNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileArtist = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Album = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FileNum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rok = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FilePath = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -122,6 +122,19 @@
             this.isFilePathGiven.TabIndex = 2;
             this.isFilePathGiven.Text = "Brak Ścieżki";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.właściwościToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 26);
+            // 
+            // właściwościToolStripMenuItem
+            // 
+            this.właściwościToolStripMenuItem.Name = "właściwościToolStripMenuItem";
+            this.właściwościToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.właściwościToolStripMenuItem.Text = "Właściwości";
+            // 
             // directoryTextBox
             // 
             this.directoryTextBox.Location = new System.Drawing.Point(7, 37);
@@ -157,69 +170,28 @@
             this.mainGrid.AllowUserToAddRows = false;
             this.mainGrid.AllowUserToDeleteRows = false;
             this.mainGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
-            this.FileName,
-            this.FileTagType,
-            this.FileArtist,
-            this.FileNum,
             this.FileTitle,
+            this.FileArtist,
+            this.Album,
+            this.FileNum,
+            this.Rok,
             this.FilePath});
             this.mainGrid.Location = new System.Drawing.Point(7, 20);
             this.mainGrid.Name = "mainGrid";
             this.mainGrid.Size = new System.Drawing.Size(762, 402);
             this.mainGrid.TabIndex = 0;
             this.mainGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // FileOrderNumber
-            // 
-            this.FileOrderNumber.Frozen = true;
-            this.FileOrderNumber.HeaderText = "L.p";
-            this.FileOrderNumber.Name = "FileOrderNumber";
-            this.FileOrderNumber.ReadOnly = true;
-            this.FileOrderNumber.Width = 25;
-            // 
-            // FileName
-            // 
-            this.FileName.Frozen = true;
-            this.FileName.HeaderText = "Nazwa";
-            this.FileName.Name = "FileName";
-            // 
-            // FileTagType
-            // 
-            this.FileTagType.HeaderText = "Rodzaj Tagów";
-            this.FileTagType.Name = "FileTagType";
-            this.FileTagType.Width = 50;
-            // 
-            // FileArtist
-            // 
-            this.FileArtist.HeaderText = "Wykonawca";
-            this.FileArtist.Name = "FileArtist";
-            // 
-            // FileNum
-            // 
-            this.FileNum.HeaderText = "Nr";
-            this.FileNum.Name = "FileNum";
-            // 
-            // FileTitle
-            // 
-            this.FileTitle.HeaderText = "Tytuł";
-            this.FileTitle.Name = "FileTitle";
-            // 
-            // FilePath
-            // 
-            this.FilePath.HeaderText = "Ścieżka";
-            this.FilePath.Name = "FilePath";
-            this.FilePath.ReadOnly = true;
             // 
             // clearTableBut
             // 
@@ -229,19 +201,6 @@
             this.clearTableBut.TabIndex = 2;
             this.clearTableBut.Text = "Wyczyść tabelę";
             this.clearTableBut.UseVisualStyleBackColor = true;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.właściwościToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(139, 26);
-            // 
-            // właściwościToolStripMenuItem
-            // 
-            this.właściwościToolStripMenuItem.Name = "właściwościToolStripMenuItem";
-            this.właściwościToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.właściwościToolStripMenuItem.Text = "Właściwości";
             // 
             // statusStrip1
             // 
@@ -484,6 +443,45 @@
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton4.Text = "toolStripButton4";
             // 
+            // FileOrderNumber
+            // 
+            this.FileOrderNumber.Frozen = true;
+            this.FileOrderNumber.HeaderText = "L.p";
+            this.FileOrderNumber.Name = "FileOrderNumber";
+            this.FileOrderNumber.ReadOnly = true;
+            this.FileOrderNumber.Width = 25;
+            // 
+            // FileTitle
+            // 
+            this.FileTitle.HeaderText = "Tytuł";
+            this.FileTitle.Name = "FileTitle";
+            // 
+            // FileArtist
+            // 
+            this.FileArtist.HeaderText = "Wykonawca";
+            this.FileArtist.Name = "FileArtist";
+            // 
+            // Album
+            // 
+            this.Album.HeaderText = "Album";
+            this.Album.Name = "Album";
+            // 
+            // FileNum
+            // 
+            this.FileNum.HeaderText = "Nr";
+            this.FileNum.Name = "FileNum";
+            // 
+            // Rok
+            // 
+            this.Rok.HeaderText = "Rok";
+            this.Rok.Name = "Rok";
+            // 
+            // FilePath
+            // 
+            this.FilePath.HeaderText = "Ścieżka";
+            this.FilePath.Name = "FilePath";
+            this.FilePath.ReadOnly = true;
+            // 
             // MainWindow
             // 
             this.AllowDrop = true;
@@ -504,9 +502,9 @@
             this.Text = "TagMainWindow";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mainGrid)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -547,13 +545,6 @@
         private System.Windows.Forms.ToolStripMenuItem oProgramieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem indeksPomocyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fAQToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileOrderNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileTagType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileArtist;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileNum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FileTitle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ToolStripMenuItem szablonyTagówToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNowySzablonToolStripMenuItem;
@@ -568,6 +559,13 @@
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileOrderNumber;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileTitle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileArtist;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Album;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FileNum;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rok;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FilePath;
 
     }
 }

@@ -17,51 +17,77 @@ namespace TagApp
      */
     public partial class MainWindow : Form
     {
+
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
 
         /// <summary>
-        /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
-        /// Następnie wrzuca je do tablicy(listy) plików i przekazuje do mainGrida
+        /// Standardowy konstruktor
         /// </summary>
-        /// <param name="filePaths"></param>
-        /// <returns></returns>
-        public bool appendIntoMainGrid(string[] filePaths) 
-        {
-            if (filePaths.Length > 0)
-            {
-                foreach (string str in filePaths)
-                {
-                    string[] info = new string[5];          // utworzenie tablicy stringów żeby dodawać wierszami
-
-                    tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
-
-                    info[0] = tablica.First().Tag.FirstPerformer;
-                    info[1] = tablica.First().Tag.Album;
-                    info[2] = tablica.First().Tag.FirstGenre;
-                    info[3] = tablica.First().Tag.Title;
-                    info[4] = tablica.First().Tag.Year.ToString();
-
-                    mainGrid.Rows.Add(info);
-                }
-            }    
-            
-            return true; 
-        }
-        /// <summary>
-        /// Opcja Funkcji dla argumentu - pojedynczego stringa, a nie tablicy
-        /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public bool appendIntoMainGrid(string path) { return true; }
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
+        /// Następnie wrzuca je do tablicy(listy)plików i przekazuje do mainGrida
+        /// </summary>
+        /// <param name="filePaths"></param>
+        /// <returns></returns>
+        public bool appendIntoMainGrid(string[] filePaths)
+        {
+            if (filePaths.Length > 0)
+            {
+                foreach (string str in filePaths)
+                {
+                    string[] info = new string[7];          // utworzenie tablicy stringów żeby dodawać wierszami
 
+                    tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
 
+                    /*
+                     * Teraz Lista odczytuje z elementu LAST, poprawnie wyświetla nowo dodane pliki
+                     * Poprzednio odczytywala ciagle ten sam.
+                    */
+                    info[0] = tablica.Count.ToString();
+                    info[1] = tablica.Last().Tag.Title;
+                    info[2] = tablica.Last().Tag.FirstPerformer;
+                    info[3] = tablica.Last().Tag.Album;
+                    info[4] = tablica.Last().Tag.DiscCount.ToString();
+                    info[5] = tablica.Last().Tag.Year.ToString();
+                    info[6] = str;
+                    mainGrid.Rows.Add(info);
+                }
+            }
+
+            return true;
+        }
+        /// <summary>
+        /// Przeciążona Funkcja przyjmuje za argument pojedynczą scieżke pliku, Tworzy z niej obiekt TagLib.File
+        /// Następnie wrzuca do tablicy(listy)plików i przekazuje do mainGrida
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public bool appendIntoMainGrid(string path) 
+        {
+            tablica.Add(TagLib.File.Create(path)); // dodanie pliku do tablicy obiektów
+            /*
+            * Teraz Lista odczytuje z elementu LAST, poprawnie wyświetla nowo dodane pliki
+            * Poprzednio odczytywala ciagle ten sam.
+            */
+            string[] info = new string[7];
+            info[0] = tablica.Count.ToString();
+            info[1] = tablica.Last().Tag.Title;
+            info[2] = tablica.Last().Tag.FirstPerformer;
+            info[3] = tablica.Last().Tag.Album;
+            info[4] = tablica.Last().Tag.DiscCount.ToString();
+            info[5] = tablica.Last().Tag.Year.ToString();
+            info[6] = path;
+            mainGrid.Rows.Add(info);
+            return true; 
+        }
         #region Events & Handlers To GUI
         ////
         // Przycisk Zamknij - Dodać w przyszłości obsługę "Czy chcesz zapisać zmiany przed zamknięciem?"
@@ -105,15 +131,7 @@ namespace TagApp
                  Tu w poprzedniej wersji byla petla foreach - zamienione na funkcje.
                  */
                 appendIntoMainGrid(filePaths);
-
             }
-
-
-           // TagLib.File plik = TagLib.File.Create("I:\\abc.mp3");
-
-           // this.filesListingrichTextBox1.AppendText(plik.Tag.Album);
-
-
         }
         
 
@@ -135,15 +153,19 @@ namespace TagApp
         }
         #endregion
         /*
-         * Obsluga kliku wczytaj pojedynczy plik z menu na pasku
+         * Obsluga kliku wczytaj pojedynczy plik z menu na pasku gornym(Ctrl + O)
          */
         private void otwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)//obsługa  kliknięcia w menu w otwórz plik
         {
             DialogResult result = openFileDialog1.ShowDialog();//przypisanie wyników wyboru z okna wyboru 1 pliku
             if (result == DialogResult.OK) // Test result.
             {
+                string fileSelected = openFileDialog1.FileName; //sciezka do pliku wybranego z okna
 
+                directoryTextBox.Text = fileSelected;           //wpisanie do text boxa sciezki
+                isFilePathGiven.Text = fileSelected;            //wypisanie ponizej sciezki
 
+                appendIntoMainGrid(fileSelected);               //Dołożenie do tablicy pliku
             }
         }
     }
