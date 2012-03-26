@@ -29,7 +29,6 @@ namespace TagApp
             tablica = new List<TagLib.File>();
             InitializeComponent();
         }
-
         /// <summary>
         /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
         /// Następnie wrzuca je do tablicy(listy)plików i przekazuje do mainGrida
@@ -38,10 +37,24 @@ namespace TagApp
         /// <returns></returns>
         public bool appendIntoMainGrid(string[] filePaths)
         {
+
+
+            int howMuchFiles = filePaths.Length; //zmienna trzymająca ile plikow jest do wczytania
+            int counter = howMuchFiles - 1; //zmienna uzywana przy zlcizaniu ile plikow zaladowano
+            double coIleStep = (howMuchFiles) / (toolStripProgressBar1.Width); //pojedynczy step progress bara, obliczanie co ile plikow stepnąć progress bar o 1
+            int dummyCounter = 0; // glupi licznik sprawdzający czy juz osiagnelismy liczbe dodanych plików po ilu, stepujemy pasek
+            coIleStep = Math.Ceiling(coIleStep);//zaokraglenie w gore
+            toolStripProgressBar1.Step = (int)coIleStep; // przypisanie stepa
+
+            
+
+
             if (filePaths.Length > 0)
             {
                 foreach (string str in filePaths)
                 {
+                    
+                    toolStripStatusLabel1.Text = "Załadowano " + (howMuchFiles - counter).ToString() + " z " + howMuchFiles.ToString();//wpisanie do info obok prog. bara na dole x plikow z x
                     string[] info = new string[7];          // utworzenie tablicy stringów żeby dodawać wierszami
 
                     tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
@@ -58,9 +71,20 @@ namespace TagApp
                     info[5] = tablica.Last().Tag.Year.ToString();
                     info[6] = str;
                     mainGrid.Rows.Add(info);
+
+
+
+                    dummyCounter++;  // glupi licznik, zwiekszany czy juz zaladowalismy tyle plikow po ilu step progress bara
+                    if (dummyCounter.Equals((int)coIleStep)) // czy counter == coIleStep
+                    {
+                        toolStripProgressBar1.PerformStep(); // jezeli tak, step progress bara
+                        dummyCounter = 0; // wyzeruj licznik
+                    }
+                    counter--; // zmiejsz licznik - zaladowany zostal plik 
                 }
             }
 
+            toolStripProgressBar1.Value = 0;
             return true;
         }
         /// <summary>
@@ -121,12 +145,14 @@ namespace TagApp
                 if (ifSubfolders.Checked)
                 {
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3", SearchOption.AllDirectories);
+
                 }
                 else
                 {
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
                 }
                 
+
                 /*
                  Tu w poprzedniej wersji byla petla foreach - zamienione na funkcje.
                  */

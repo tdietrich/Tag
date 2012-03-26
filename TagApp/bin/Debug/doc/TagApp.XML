@@ -35,7 +35,9 @@
         </member>
         <member name="M:TagApp.MainWindow.appendIntoMainGrid(System.String)">
             <summary>
-            Opcja Funkcji dla argumentu - pojedynczego stringa, a nie tablicy
+            Przeciążona Funkcja przyjmuje za argument pojedynczą scieżke pliku, Tworzy z niej obiekt TagLib.File
+            Następnie wrzuca do tablicy(listy)plików i przekazuje do mainGrida
+            
             </summary>
             <param name="path"></param>
             <returns></returns>
