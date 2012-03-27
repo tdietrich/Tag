@@ -10,24 +10,72 @@ using System.Windows.Forms;
 using TagLib;
 using System.Threading;
 
+
+
+
+
+
+
 namespace TagApp
 {
     /*
      PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML //generowany - updatowany za kazdym Buildem
      */
+    /// <summary>
+    /// Struktura przechowująca nazwy plików z których korzysta program
+    ///W tej strukturze będziemy trzymac wszystkie nazwy plików używanych w programie - tzn txt np itp
+    /// Plików zewnętrznych
+    /// </summary>
+    public struct TagAppFileNames
+    {
+        /// <summary>
+        /// Co dodanie pola do struktury, dodawać argument do konstruktora i ustawiać w nim wartość
+        /// Konstruktor struktury nie moze byc domyślny(pusty)- narzucone przez VS. \
+        /// </summary>
+        /// <param name="p">Opisuje templatesFile</param>
+        /// <param name="s">Opisuje commonUsedDirs</param>
+        public TagAppFileNames(string p,string s)
+        {
+            templatesFile = p;
+            commonUsedDirs = s;
+        }
+        /// <summary>
+        /// Plik z używanymi szablonami nazewnictwa
+        /// </summary>
+        public string templatesFile;
+        /// <summary>
+        /// Często używane ścieżki do wyszukiwania
+        /// </summary>
+        public string commonUsedDirs;
+    }
+
     public partial class MainWindow : Form
     {
-
+       
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
         private TemplatesManager OknoTemplatesManager;
+        private TagAppFileNames FileNames;
         /// <summary>
         /// Standardowy konstruktor
         /// </summary>
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
+            FileNames = new TagAppFileNames("userTemplates.txt","commons.txt");
            
+            //Wyszukuje plik, templejtów, jeżeli nie ma, tworzy go
+            if(!(searchForTagAppFile(FileNames.templatesFile)))
+            {
+                System.IO.File.Create(FileNames.templatesFile);
+            }
+            //Wyszukuje plik common used Dirs, jezeli nie ma - tworzy
+            if (!(searchForTagAppFile(FileNames.commonUsedDirs)))
+            {
+                System.IO.File.Create(FileNames.commonUsedDirs);
+            }
+
+
             InitializeComponent();
         }
         /// <summary>
@@ -113,10 +161,41 @@ namespace TagApp
             mainGrid.Rows.Add(info);
             return true; 
         }
+        /// <summary>
+        /// Funkcja szuka czy w Folderze programu jest plik o danej sciezce, zwraca tak lub nie
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public bool searchForTagAppFile(string name)
+        {
+            if (System.IO.File.Exists(name)) return true;
+            else return false;
+        }
 
+
+        /// <summary>
+        /// Funkcja dodaje do pliku commonDirs, ścieżkę podaną jako argument, w przyszłości, będzie zliczać,
+        /// najbardziej popularne śceiżki
+        /// </summary>
+        /// <param name="path">Ścieżka do dodania do pliku txt</param>
+        public void addDirToCommonDirs(string path)
+        {
+            //strumień
+            FileStream plik;
+
+            //dodanie entera na koniec
+            path = path + "\n";
+            byte[] byteData = null;
+            byteData = Encoding.UTF8.GetBytes(path);
+            plik = new FileStream(FileNames.commonUsedDirs, FileMode.Append);
+            plik.Write(byteData, 0, byteData.Length);
+            plik.Close();
+
+        }
 
 
         #region Events & Handlers To GUI
+
         ////
         // Przycisk Zamknij - Dodać w przyszłości obsługę "Czy chcesz zapisać zmiany przed zamknięciem?"
         //
@@ -155,8 +234,8 @@ namespace TagApp
                 {
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
                 }
-                
 
+                addDirToCommonDirs(directoryTextBox.Text);
                 /*
                  Tu w poprzedniej wersji byla petla foreach - zamienione na funkcje.
                  */
@@ -210,7 +289,7 @@ namespace TagApp
 
 
         }
-        #endregion
+        
         /// <summary>
         /// Obsluga kliku w Szablony Tagów, w menu stripie, Tworzy nowe okno TemplatesManager, i pokazuje je
         /// </summary>
@@ -221,6 +300,10 @@ namespace TagApp
             OknoTemplatesManager = new TemplatesManager();
             OknoTemplatesManager.Show();
         }
+        #endregion
     }
+
+
+
 }
 

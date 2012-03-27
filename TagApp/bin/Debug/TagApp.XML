@@ -20,6 +20,53 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="T:TagApp.TemplatesManager">
+            <summary>
+            Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TagApp.TemplatesManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TagApp.TagAppFileNames">
+             <summary>
+             Struktura przechowująca nazwy plików z których korzysta program
+            W tej strukturze będziemy trzymac wszystkie nazwy plików używanych w programie - tzn txt np itp
+             Plików zewnętrznych
+             </summary>
+        </member>
+        <member name="M:TagApp.TagAppFileNames.#ctor(System.String,System.String)">
+            <summary>
+            Co dodanie pola do struktury, dodawać argument do konstruktora i ustawiać w nim wartość
+            Konstruktor struktury nie moze byc domyślny(pusty)- narzucone przez VS. \
+            </summary>
+            <param name="p">Opisuje templatesFile</param>
+            <param name="s">Opisuje commonUsedDirs</param>
+        </member>
+        <member name="F:TagApp.TagAppFileNames.templatesFile">
+            <summary>
+            Plik z używanymi szablonami nazewnictwa
+            </summary>
+        </member>
+        <member name="F:TagApp.TagAppFileNames.commonUsedDirs">
+            <summary>
+            Często używane ścieżki do wyszukiwania
+            </summary>
+        </member>
         <member name="M:TagApp.MainWindow.#ctor">
             <summary>
             Standardowy konstruktor
@@ -42,9 +89,30 @@
             <param name="path"></param>
             <returns></returns>
         </member>
+        <member name="M:TagApp.MainWindow.searchForTagAppFile(System.String)">
+            <summary>
+            Funkcja szuka czy w Folderze programu jest plik o danej sciezce, zwraca tak lub nie
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:TagApp.MainWindow.addDirToCommonDirs(System.String)">
+            <summary>
+            Funkcja dodaje do pliku commonDirs, ścieżkę podaną jako argument, w przyszłości, będzie zliczać,
+            najbardziej popularne śceiżki
+            </summary>
+            <param name="path">Ścieżka do dodania do pliku txt</param>
+        </member>
         <member name="M:TagApp.MainWindow.mainGrid_CellEndEdit(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
             <summary>
             Obsługa po zmianie komórki tabeli
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:TagApp.MainWindow.szablonyTagówToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Obsluga kliku w Szablony Tagów, w menu stripie, Tworzy nowe okno TemplatesManager, i pokazuje je
             </summary>
             <param name="sender"></param>
             <param name="e"></param>
@@ -106,23 +174,6 @@
         <member name="M:TagApp.Program.Main">
             <summary>
             The main entry point for the application.
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:TagApp.TemplatesManager.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
     </members>
