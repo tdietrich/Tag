@@ -20,13 +20,14 @@ namespace TagApp
 
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
-
+        private TemplatesManager OknoTemplatesManager;
         /// <summary>
         /// Standardowy konstruktor
         /// </summary>
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
+           
             InitializeComponent();
         }
         /// <summary>
@@ -112,6 +113,9 @@ namespace TagApp
             mainGrid.Rows.Add(info);
             return true; 
         }
+
+
+
         #region Events & Handlers To GUI
         ////
         // Przycisk Zamknij - Dodać w przyszłości obsługę "Czy chcesz zapisać zmiany przed zamknięciem?"
@@ -177,7 +181,7 @@ namespace TagApp
             oProgramie = new AboutBox1();//construct
             oProgramie.Show();//show
         }
-        #endregion
+
         /*
          * Obsluga kliku wczytaj pojedynczy plik z menu na pasku gornym(Ctrl + O)
          */
@@ -193,6 +197,29 @@ namespace TagApp
 
                 appendIntoMainGrid(fileSelected);               //Dołożenie do tablicy pliku
             }
+        }
+       
+        /// <summary>
+        /// Obsługa po zmianie komórki tabeli
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void mainGrid_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+
+
+        }
+        #endregion
+        /// <summary>
+        /// Obsluga kliku w Szablony Tagów, w menu stripie, Tworzy nowe okno TemplatesManager, i pokazuje je
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void szablonyTagówToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OknoTemplatesManager = new TemplatesManager();
+            OknoTemplatesManager.Show();
         }
     }
 }

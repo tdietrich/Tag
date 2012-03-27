@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ifSubfolders = new System.Windows.Forms.CheckBox();
@@ -62,8 +62,6 @@
             this.edycjaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.narzędziaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.szablonyTagówToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dodajNowySzablonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.edytujSzablonyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.normalizatorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.infoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aktualizacjeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -170,14 +168,14 @@
             this.mainGrid.AllowUserToAddRows = false;
             this.mainGrid.AllowUserToDeleteRows = false;
             this.mainGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -192,6 +190,7 @@
             this.mainGrid.Size = new System.Drawing.Size(762, 402);
             this.mainGrid.TabIndex = 0;
             this.mainGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.mainGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.mainGrid_CellEndEdit);
             // 
             // FileOrderNumber
             // 
@@ -347,25 +346,10 @@
             // 
             // szablonyTagówToolStripMenuItem
             // 
-            this.szablonyTagówToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.dodajNowySzablonToolStripMenuItem,
-            this.edytujSzablonyToolStripMenuItem});
             this.szablonyTagówToolStripMenuItem.Name = "szablonyTagówToolStripMenuItem";
             this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
             this.szablonyTagówToolStripMenuItem.Text = "Szablony Nazewnictwa";
-            // 
-            // dodajNowySzablonToolStripMenuItem
-            // 
-            this.dodajNowySzablonToolStripMenuItem.Name = "dodajNowySzablonToolStripMenuItem";
-            this.dodajNowySzablonToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.dodajNowySzablonToolStripMenuItem.Text = "Dodaj Nowy Szablon";
-            // 
-            // edytujSzablonyToolStripMenuItem
-            // 
-            this.edytujSzablonyToolStripMenuItem.Enabled = false;
-            this.edytujSzablonyToolStripMenuItem.Name = "edytujSzablonyToolStripMenuItem";
-            this.edytujSzablonyToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.edytujSzablonyToolStripMenuItem.Text = "Edytuj Istniejace Szablony";
+            this.szablonyTagówToolStripMenuItem.Click += new System.EventHandler(this.szablonyTagówToolStripMenuItem_Click);
             // 
             // normalizatorToolStripMenuItem
             // 
@@ -547,8 +531,6 @@
         private System.Windows.Forms.ToolStripMenuItem fAQToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ToolStripMenuItem szablonyTagówToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem dodajNowySzablonToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem edytujSzablonyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem normalizatorToolStripMenuItem;
         private System.Windows.Forms.Label isFilePathGiven;
         private System.Windows.Forms.CheckBox ifSubfolders;
