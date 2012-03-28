@@ -110,8 +110,10 @@ namespace TagApp
 
                     /*
                      * Teraz Lista odczytuje z elementu LAST, poprawnie wyświetla nowo dodane pliki
-                     * Poprzednio odczytywala ciagle ten sam.
-                    */
+                     * Poprzednio odcztywala ciagle ten sam.
+                     */
+
+
                     info[0] = tablica.Count.ToString();
                     info[1] = tablica.Last().Tag.Title;
                     info[2] = tablica.Last().Tag.FirstPerformer;

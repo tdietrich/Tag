@@ -14,6 +14,28 @@ namespace TagApp
     /// Nie ogarnalem jeszcze tej biblio tak, zeby kumac jak działa
     /// 
     /// </summary>
+    /// 
+
+    /* Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od zera. */
+
+    enum TagFields : short
+    {
+        Path,
+        Filename,
+        Artist,
+        Title,
+        Album,
+        Track,
+        AlbumArtist,
+        Tag,
+        Discnumber,
+        Year,
+        Genre,
+        Comment
+    }
+
+
+
     class Mp3File
     {
         public Mp3File(string Ppath) {
