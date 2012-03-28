@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ifSubfolders = new System.Windows.Forms.CheckBox();
@@ -157,7 +157,7 @@
             this.groupBox2.Controls.Add(this.mainGrid);
             this.groupBox2.Location = new System.Drawing.Point(261, 58);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(775, 441);
+            this.groupBox2.Size = new System.Drawing.Size(781, 489);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Szczegóły plików";
@@ -168,14 +168,14 @@
             this.mainGrid.AllowUserToAddRows = false;
             this.mainGrid.AllowUserToDeleteRows = false;
             this.mainGrid.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mainGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mainGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.FileOrderNumber,
@@ -187,7 +187,7 @@
             this.FilePath});
             this.mainGrid.Location = new System.Drawing.Point(7, 20);
             this.mainGrid.Name = "mainGrid";
-            this.mainGrid.Size = new System.Drawing.Size(762, 402);
+            this.mainGrid.Size = new System.Drawing.Size(768, 450);
             this.mainGrid.TabIndex = 0;
             this.mainGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.mainGrid.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.mainGrid_CellEndEdit);
