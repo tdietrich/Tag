@@ -1,4 +1,35 @@
-****************README FILE*******************
+﻿****************README FILE*******************
+v0.0.3 R \
+////29.03.2012
+
++++++++++++++++++++++++++++BUGS++++++++++++++++++++++++++++++
++Brak wczytywania plików, jeśli prawa do pliku są "niejasne"+
++Tzn np. gdy przy przenoszeniu plików z innego systemu np XP+
++na Win 7 zmieniaja sie prawa i teoretycznie mozemy plik otw+
++ale formalnie system widzi ze nie mamy praw - DZIWNA SPRAWA+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+MAIN UPDATES:
+- Stworzone pliki "commons.txt" i "userTemplates.txt" przetrzymujące odpowiednio - czesto uzywane sciezki do wyszuk. i templejty nazewnictwa.
+- Metody obsługi sprawdzania czy istnieją te pliki i tworzenia ich jeżeli ich nie ma.
+- Metody zapisu wyszukiwanych ścieżek do pliku Commons.
+- 
+
+MAIN DELETES:
+- NONE
+
+
+KNOWN BUGS:
+Brak wczytywania plików, jeśli prawa do pliku są "niejasne" Tzn np. gdy przy przenoszeniu plików z innego systemu np XP + a Win 7 zmieniaja sie prawa i teoretycznie mozemy plik otw. ale formalnie system widzi ze nie mamy praw - DZIWNA SPRAWA
+
+
+TODO:
+- wyodrebnic szukanie do nowego watku
+- Przypisac progres na progress barze do wyszukiwania - jak bedziemy juz umieli odczytac tagi, to  np.
+(liczba_plikowmp3_z_ktorych_zczytalismy)/(wszystkie do zczytania)*100%
+
+
+========================================================================================================================
 v0.0.2 R \
 ////18.03.2012
 

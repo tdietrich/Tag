@@ -15,5 +15,14 @@ namespace TagApp
         {
             InitializeComponent();
         }
+
+        private void lookUpTemplatePreProcess() { }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            lookUpLabel.Text = textBox1.Text;
+        }
+
+
     }
 }
