@@ -347,14 +347,16 @@
             // szablonyTagówToolStripMenuItem
             // 
             this.szablonyTagówToolStripMenuItem.Name = "szablonyTagówToolStripMenuItem";
-            this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.szablonyTagówToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.T)));
+            this.szablonyTagówToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.szablonyTagówToolStripMenuItem.Text = "Szablony Nazewnictwa";
             this.szablonyTagówToolStripMenuItem.Click += new System.EventHandler(this.szablonyTagówToolStripMenuItem_Click);
             // 
             // normalizatorToolStripMenuItem
             // 
             this.normalizatorToolStripMenuItem.Name = "normalizatorToolStripMenuItem";
-            this.normalizatorToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.normalizatorToolStripMenuItem.Size = new System.Drawing.Size(267, 22);
             this.normalizatorToolStripMenuItem.Text = "Normalizator Tagów";
             // 
             // infoToolStripMenuItem

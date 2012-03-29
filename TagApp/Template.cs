@@ -11,12 +11,22 @@ namespace TagApp
     /// </summary>
     class Template
     {
-        public Template(string temp) { }
+        public Template(string temp) 
+        {
+            name = "Unknown";
+            templateSchema = temp;
+            usageFrequency = 0;
+        }
         public Template() { }
-
-        private string format; // rzeczywisty templejt tzn string o wygladzie np " $Artist - $SongName  $Number ";
-
-
+        private string name;
+        private string templateSchema; // rzeczywisty templejt tzn string o wygladzie np " $Artist - $SongName  $Number ";
+        private int usageFrequency;
+        
+        
+        public string TemplateSchema { get; set; }
+        public string Name { get; set; }
+        public int UsageFrequency { get; set; }
+       
 
 
     }

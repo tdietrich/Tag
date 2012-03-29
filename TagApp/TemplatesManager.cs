@@ -21,7 +21,7 @@ namespace TagApp
         /// Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
         /// </summary>
         /// <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
-        public varNames(string initType="default") 
+        public varNames(string initType = "default")
         {
             if (initType.Equals("default"))
             {
@@ -30,6 +30,7 @@ namespace TagApp
                 vAlbum = "$album";
                 vNum = "$num";
                 vTrack = "$track";
+                vYear = "$year";
             }
             else
             {
@@ -38,6 +39,7 @@ namespace TagApp
                 vAlbum = "ERROR";
                 vNum = "ERROR";
                 vTrack = "ERROR";
+                vYear = "ERROR";
 
             }
 
@@ -50,26 +52,71 @@ namespace TagApp
         public string vAlbum;
         public string vTrack;
         public string vNum;
- 
+        public string vYear;
+
     }
     public partial class TemplatesManager : Form
     {
         /// <summary>
-        /// stdowy konstruktor
+        /// Standardowy konstruktor, ale duzo sie dzieje
         /// </summary>
         public TemplatesManager()
         {
+
+            Templates = new List<Template>();
             InitializeComponent();
             variableDefs = new varNames("default");
+
+            //podwojone sprawdzenie właściwie bo MainWnd tez sprawdza
+            if (MainWindow.searchForTagAppFile(MainWindow.FileNames.templatesFile))
+            {
+                /*wczytywanie istniejących templejtów z pliku, linia po lini
+                 *struktura pliku powoduje ze w tabeli dane są umieszczone tak:
+                 *  nazwa1
+                 *  schemat1
+                 *  nazwa2
+                 *  schemat2
+                 */
+                string[] lines = System.IO.File.ReadAllLines(MainWindow.FileNames.templatesFile);
+                int i = 0;
+                string hlp = "";
+
+                //Dodawanie obiektów do listy
+                foreach (string str in lines)
+                {
+                    CharEnumerator enumerator = lines[i].GetEnumerator();
+                    enumerator.MoveNext();
+                    //do spacji znajduje sie nazwa szablonu
+                    while (!enumerator.Current.Equals(' '))
+                    {
+                        hlp += enumerator.Current;
+                        enumerator.MoveNext();
+                    }
+                    //nowy obiekt wrzucamy do listy
+                    Template wzor = new Template(lines[i]);
+                    wzor.Name = hlp;
+                    Templates.Add(wzor);
+
+                    //dodajemy item do listboxa
+                    listBox1.Items.Add(wzor.Name);
+                    i++;
+                }
+
+               
+
+            }
+            //robi pre-process dla danych wpisanych w txtbox scheemat
             lookUpTemplatePreProcess();
         }
+
+        /// <summary>
+        /// Lista wczytanych/posiadaych przez usera templejtów
+        /// </summary>
+        private List<Template> Templates;
         /// <summary>
         /// Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
         /// </summary>
         private varNames variableDefs;
-
-
-
         private string lookUpTemplatePreProcess()
         {
             string tArtist = "David Bovie";
@@ -80,8 +127,8 @@ namespace TagApp
 
             string templejt = textBox1.Text;
             string help = "";
-            string afterRepl ="";
-            CharEnumerator enumerator= templejt.GetEnumerator();
+            string afterRepl = "";
+            CharEnumerator enumerator = templejt.GetEnumerator();
             CharEnumerator drugiEnum = templejt.GetEnumerator();
 
             if (templejt.Equals("")) return afterRepl;
@@ -98,27 +145,27 @@ namespace TagApp
                         else break;
                     }
 
-                    switch(help)
+                    switch (help)
                     {
                         case "$artist":
                             afterRepl += tArtist;
-                        break;
+                            break;
 
                         case "$album":
                             afterRepl += tAlbum;
-                        break;
+                            break;
                         case "$guest":
                             afterRepl += tGuest;
-                        break;
+                            break;
                         case "$num":
                             afterRepl += tNum;
-                        break;
+                            break;
                         case "$track":
                             afterRepl += tTrack;
-                        break;
+                            break;
                         default:
-                        afterRepl += help;
-                        break;
+                            afterRepl += help;
+                            break;
                     }
                 }
                 else
@@ -133,7 +180,5 @@ namespace TagApp
         {
             lookUpLabel.Text = lookUpTemplatePreProcess();
         }
-
-
     }
 }

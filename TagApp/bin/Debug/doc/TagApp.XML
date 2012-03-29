@@ -20,38 +20,6 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
-        <member name="T:TagApp.TemplatesManager">
-            <summary>
-            Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:TagApp.TemplatesManager.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplatesManager.#ctor">
-            <summary>
-            stdowy konstruktor
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.variableDefs">
-            <summary>
-            Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
-            </summary>
-        </member>
         <member name="T:TagApp.TagAppFileNames">
              <summary>
              Struktura przechowująca nazwy plików z których korzysta program
@@ -167,20 +135,6 @@
             the contents of this method with the code editor.
             </summary>
         </member>
-        <member name="T:TagApp.varNames">
-            <summary>
-            Struktura przechowująca nazwy obsługiwanych stringów jako zmienne przez Edytor Tagów.
-            tzn np. vArtist musi być takim łańcuchem pod który TemplateManager będzie wrzucał w przyszlosci nazwy artystów
-            np. vArtist = "$artist" - dosłownie
-            </summary>
-        </member>
-        <member name="M:TagApp.varNames.#ctor(System.String)">
-            <summary>
-            Konstruktor inicjujący pola w zależności od parametru init. W przyszłosci, w konstruktorze, będzie możliwa
-            Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
-            </summary>
-            <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
-        </member>
         <member name="T:TagApp.Template">
             <summary>
             każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie(na razie):
@@ -200,6 +154,57 @@
             <summary>
             The main entry point for the application.
             </summary>
+        </member>
+        <member name="T:TagApp.TemplatesManager">
+            <summary>
+            Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TagApp.TemplatesManager.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplatesManager.#ctor">
+            <summary>
+            Standardowy konstruktor, ale duzo sie dzieje
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.Templates">
+            <summary>
+            Lista wczytanych/posiadaych przez usera templejtów
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.variableDefs">
+            <summary>
+            Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
+            </summary>
+        </member>
+        <member name="T:TagApp.varNames">
+            <summary>
+            Struktura przechowująca nazwy obsługiwanych stringów jako zmienne przez Edytor Tagów.
+            tzn np. vArtist musi być takim łańcuchem pod który TemplateManager będzie wrzucał w przyszlosci nazwy artystów
+            np. vArtist = "$artist" - dosłownie
+            </summary>
+        </member>
+        <member name="M:TagApp.varNames.#ctor(System.String)">
+            <summary>
+            Konstruktor inicjujący pola w zależności od parametru init. W przyszłosci, w konstruktorze, będzie możliwa
+            Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
+            </summary>
+            <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
         </member>
     </members>
 </doc>

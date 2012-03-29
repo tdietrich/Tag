@@ -118,15 +118,12 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>Wpisz Schemat według którego nazwane będą pliki. Możesz używać następujących zmiennych:
-
-$artist    - Główny Wykonawca Albumu
-$guest   - (opcjonalnie)Współwykonawca
-$album - Nazwa Albumu
-$num    - Numer utworu
-$track    - Nazwa Utworu
-
-Pomiędzy zmiennymi możesz używać dowolnych, dozwolonych znaków.
-</value>
+    <value>Szablony nazewnictwa pozwalają na nazywanie schematycznie dużej ilości plików mp3. Korzystając z ich Tagów Dostepne zmienne to:
+$artist - wykonawca
+$album - nazwa albumu
+$guest - wykonawca goscinny
+$num - numer utworu
+$track - nazwa utworu
+$year - rok wydania albumu</value>
   </data>
 </root>

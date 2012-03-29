@@ -1,0 +1,1 @@
+mojTemplejt $num) - $artist $track [$album $year]

@@ -48,14 +48,13 @@ namespace TagApp
         /// </summary>
         public string commonUsedDirs;
     }
-
     public partial class MainWindow : Form
     {
        
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
         private TemplatesManager OknoTemplatesManager;
-        private TagAppFileNames FileNames;
+        public static TagAppFileNames FileNames;
         /// <summary>
         /// Standardowy konstruktor
         /// </summary>
@@ -63,9 +62,10 @@ namespace TagApp
         {
             tablica = new List<TagLib.File>();
             FileNames = new TagAppFileNames("userTemplates.txt","commons.txt");
-           
+            InitializeComponent();
+
             //Wyszukuje plik, templejtów, jeżeli nie ma, tworzy go
-            if(!(searchForTagAppFile(FileNames.templatesFile)))
+            if (!(searchForTagAppFile(FileNames.templatesFile)))
             {
                 System.IO.File.Create(FileNames.templatesFile);
             }
@@ -74,9 +74,6 @@ namespace TagApp
             {
                 System.IO.File.Create(FileNames.commonUsedDirs);
             }
-
-
-            InitializeComponent();
         }
         /// <summary>
         /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
@@ -168,13 +165,11 @@ namespace TagApp
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public bool searchForTagAppFile(string name)
+        public static bool searchForTagAppFile(string name)
         {
             if (System.IO.File.Exists(name)) return true;
             else return false;
         }
-
-
         /// <summary>
         /// Funkcja dodaje do pliku commonDirs, ścieżkę podaną jako argument, w przyszłości, będzie zliczać,
         /// najbardziej popularne śceiżki
@@ -205,8 +200,6 @@ namespace TagApp
         {
             this.Close(); 
         }
-       
-        
         ////
         // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
         // i wypisywanie nizej w rich text boxie
@@ -216,7 +209,6 @@ namespace TagApp
         //
         private void button1_Click(object sender, EventArgs e)
         {
-            int counter = 0;    //zlicza ilosc plikow - to mozna zalatwic chyba System.IO funkcja jakas
             string[] filePaths;
 
             DialogResult result = folderBrowserDialog1.ShowDialog();
