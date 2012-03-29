@@ -42,6 +42,16 @@
             the contents of this method with the code editor.
             </summary>
         </member>
+        <member name="M:TagApp.TemplatesManager.#ctor">
+            <summary>
+            stdowy konstruktor
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.variableDefs">
+            <summary>
+            Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
+            </summary>
+        </member>
         <member name="T:TagApp.TagAppFileNames">
              <summary>
              Struktura przechowująca nazwy plików z których korzysta program
@@ -156,6 +166,20 @@
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
             </summary>
+        </member>
+        <member name="T:TagApp.varNames">
+            <summary>
+            Struktura przechowująca nazwy obsługiwanych stringów jako zmienne przez Edytor Tagów.
+            tzn np. vArtist musi być takim łańcuchem pod który TemplateManager będzie wrzucał w przyszlosci nazwy artystów
+            np. vArtist = "$artist" - dosłownie
+            </summary>
+        </member>
+        <member name="M:TagApp.varNames.#ctor(System.String)">
+            <summary>
+            Konstruktor inicjujący pola w zależności od parametru init. W przyszłosci, w konstruktorze, będzie możliwa
+            Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
+            </summary>
+            <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
         </member>
         <member name="T:TagApp.Template">
             <summary>

@@ -35,13 +35,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TemplatesManager));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lookUpLabel = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -61,23 +64,17 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.textBox2);
+            this.splitContainer1.Panel2.Controls.Add(this.label4);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
             this.splitContainer1.Panel2.Controls.Add(this.button1);
             this.splitContainer1.Panel2.Controls.Add(this.lookUpLabel);
             this.splitContainer1.Panel2.Controls.Add(this.richTextBox1);
             this.splitContainer1.Panel2.Controls.Add(this.textBox1);
             this.splitContainer1.Panel2.Controls.Add(this.label2);
-            this.splitContainer1.Size = new System.Drawing.Size(501, 287);
+            this.splitContainer1.Size = new System.Drawing.Size(501, 316);
             this.splitContainer1.SplitterDistance = 166;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(132, 252);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "Dodaj Nowy";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -97,11 +94,20 @@
             this.listBox1.Size = new System.Drawing.Size(129, 186);
             this.listBox1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(131, 281);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Dodaj Nowy";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // lookUpLabel
             // 
             this.lookUpLabel.AutoSize = true;
             this.lookUpLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lookUpLabel.Location = new System.Drawing.Point(109, 212);
+            this.lookUpLabel.Location = new System.Drawing.Point(110, 251);
             this.lookUpLabel.Name = "lookUpLabel";
             this.lookUpLabel.Size = new System.Drawing.Size(119, 13);
             this.lookUpLabel.TabIndex = 3;
@@ -118,9 +124,9 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 184);
+            this.textBox1.Location = new System.Drawing.Point(82, 228);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(288, 20);
+            this.textBox1.Size = new System.Drawing.Size(227, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "Tu Wpisz Swój Szablon";
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -134,11 +140,36 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Nowy Szablon";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 230);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 13);
+            this.label3.TabIndex = 4;
+            this.label3.Text = "Szablon:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(30, 204);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.TabIndex = 5;
+            this.label4.Text = "Nazwa:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(82, 202);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(227, 20);
+            this.textBox2.TabIndex = 6;
+            // 
             // TemplatesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(501, 287);
+            this.ClientSize = new System.Drawing.Size(501, 316);
             this.Controls.Add(this.splitContainer1);
             this.Location = new System.Drawing.Point(300, 300);
             this.Name = "TemplatesManager";
@@ -163,5 +194,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label lookUpLabel;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
