@@ -10,15 +10,6 @@ v0.0.3 R \
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 MAIN UPDATES:
-- Stworzone pliki "commons.txt" i "userTemplates.txt" przetrzymujące odpowiednio - czesto uzywane sciezki do wyszuk. i templejty nazewnictwa.
-- Metody obsługi sprawdzania czy istnieją te pliki i tworzenia ich jeżeli ich nie ma.
-- Metody zapisu wyszukiwanych ścieżek do pliku Commons przy kliknieciu dodaj folder.
-- Dodane Okno TemplatesManager
-- Interfejs TemplateManagera
-- Dodana Klasa statyczna TemplatesParser
-- Wstępna metoda parsowania lookup (zbugowana fchuj, praca nad tym w toku)
-- Update klasy Template
-- Mało istotne zmiany w kodzie - m.in wywalenie zmiennych lokalnych nieuzywanych, format kodu
 
 MAIN DELETES:
 - NONE
