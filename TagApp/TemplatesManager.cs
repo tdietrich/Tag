@@ -66,7 +66,7 @@ namespace TagApp
             Templates = new List<Template>();
             InitializeComponent();
             variableDefs = new varNames("default");
-
+            TemplateParser.buffer = ""; //inicjalizacja pola kalsy statycznej
             //podwojone sprawdzenie właściwie bo MainWnd tez sprawdza
             if (MainWindow.searchForTagAppFile(MainWindow.FileNames.templatesFile))
             {
@@ -101,12 +101,9 @@ namespace TagApp
                     listBox1.Items.Add(wzor.Name);
                     i++;
                 }
-
-               
-
             }
             //robi pre-process dla danych wpisanych w txtbox scheemat
-            lookUpTemplatePreProcess();
+          //  lookUpTemplatePreProcess();
         }
 
         /// <summary>
@@ -117,68 +114,10 @@ namespace TagApp
         /// Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
         /// </summary>
         private varNames variableDefs;
-        private string lookUpTemplatePreProcess()
-        {
-            string tArtist = "David Bovie";
-            string tAlbum = "Beautifull story";
-            string tGuest = "Carter";
-            string tNum = "1";
-            string tTrack = "New Life";
 
-            string templejt = textBox1.Text;
-            string help = "";
-            string afterRepl = "";
-            CharEnumerator enumerator = templejt.GetEnumerator();
-            CharEnumerator drugiEnum = templejt.GetEnumerator();
-
-            if (templejt.Equals("")) return afterRepl;
-            enumerator.MoveNext();
-            for (int i = 0; i < templejt.Length; i++)
-            {
-                if (enumerator.Current.Equals('$'))
-                {
-                    while (!(enumerator.Current.Equals(' ')))
-                    {
-                        help += enumerator.Current;
-                        i++;
-                        if (i < templejt.Length) enumerator.MoveNext();
-                        else break;
-                    }
-
-                    switch (help)
-                    {
-                        case "$artist":
-                            afterRepl += tArtist;
-                            break;
-
-                        case "$album":
-                            afterRepl += tAlbum;
-                            break;
-                        case "$guest":
-                            afterRepl += tGuest;
-                            break;
-                        case "$num":
-                            afterRepl += tNum;
-                            break;
-                        case "$track":
-                            afterRepl += tTrack;
-                            break;
-                        default:
-                            afterRepl += help;
-                            break;
-                    }
-                }
-                else
-                {
-                    afterRepl += enumerator.Current;
-                    enumerator.MoveNext();
-                }
-            }
-            return afterRepl;
-        }
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            lookUpLabel.Text = lookUpTemplatePreProcess();
+            lookUpLabel.Text = TemplateParser.parseTemplate(textBox1.Text, variableDefs);
         }
     }
 }
