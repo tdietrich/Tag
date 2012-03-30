@@ -18,8 +18,7 @@ MAIN UPDATES:
 - Dodana Klasa statyczna TemplatesParser
 - Wstępna metoda parsowania lookup (zbugowana fchuj, praca nad tym w toku)
 - Update klasy Template
-- Mało istotne zmiany w kodzie - m.in wywalenie zmiennych lokalnych nieuzywanych, format
-
+- Mało istotne zmiany w kodzie - m.in wywalenie zmiennych lokalnych nieuzywanych, format kodu
 
 MAIN DELETES:
 - NONE
