@@ -1,1 +1,4 @@
-mojTemplejt $num) - $artist $track [$album $year]
+moj Templejt"$num) - $artist $track [$album $year]"
+glupi"jestem g³upi templejt"
+Template1"$num. - $track ($artist) [$album]"
+Inny"$album - $year $album ft. $guest"

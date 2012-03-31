@@ -55,6 +55,7 @@ namespace TagApp
         public string vYear;
 
     }
+
     public partial class TemplatesManager : Form
     {
         /// <summary>
@@ -72,22 +73,24 @@ namespace TagApp
             {
                 /*wczytywanie istniejących templejtów z pliku, linia po lini
                  *struktura pliku powoduje ze w tabeli dane są umieszczone tak:
-                 *  nazwa1
-                 *  schemat1
-                 *  nazwa2
-                 *  schemat2
+                 *  nazwa1"schemat1"
+                 *  nazwa2"schemat2"
                  */
                 string[] lines = System.IO.File.ReadAllLines(MainWindow.FileNames.templatesFile);
                 int i = 0;
                 string hlp = "";
+                string schema = "";
 
                 //Dodawanie obiektów do listy
                 foreach (string str in lines)
                 {
+                    hlp = "";
+                    schema = "";
                     CharEnumerator enumerator = lines[i].GetEnumerator();
+
                     enumerator.MoveNext();
                     //do spacji znajduje sie nazwa szablonu
-                    while (!enumerator.Current.Equals(' '))
+                    while (!enumerator.Current.Equals('"'))
                     {
                         hlp += enumerator.Current;
                         enumerator.MoveNext();
@@ -95,6 +98,15 @@ namespace TagApp
                     //nowy obiekt wrzucamy do listy
                     Template wzor = new Template(lines[i]);
                     wzor.Name = hlp;
+
+                    schema += enumerator.Current;
+                    enumerator.MoveNext();
+                    while (!enumerator.Current.Equals('"'))
+                    {
+                        enumerator.MoveNext();
+                        schema += enumerator.Current;
+                    }
+                    wzor.TemplateSchema = schema;
                     Templates.Add(wzor);
 
                     //dodajemy item do listboxa
@@ -102,8 +114,6 @@ namespace TagApp
                     i++;
                 }
             }
-            //robi pre-process dla danych wpisanych w txtbox scheemat
-          //  lookUpTemplatePreProcess();
         }
 
         /// <summary>
@@ -118,6 +128,27 @@ namespace TagApp
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             lookUpLabel.Text = TemplateParser.parseTemplate(textBox1.Text, variableDefs);
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //aktywowanie taba edycja
+            tabControl1.SelectTab(1);
+            //zebranie indexu wybranego z listboxa
+            int wybrany = this.listBox1.SelectedIndex;
+            //wybranie po indeksie z listy templejtów załadowanych wczesniej z pliku
+            Template wybranyTemplejt = Templates.ElementAt(wybrany);
+            //wpisujemy do txtboxa name
+            textBox3.Text = wybranyTemplejt.Name;
+            //wpisujemy schemat
+            textBox4.Text = wybranyTemplejt.TemplateSchema;
+
+        }
+
+        private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            //na zmiane textu w boxie, parsujemy  templejt
+            lookUpLabel2.Text = TemplateParser.parseTemplate(textBox4.Text, variableDefs);
         }
     }
 }

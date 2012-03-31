@@ -20,6 +20,33 @@
               resource lookups using this strongly typed resource class.
             </summary>
         </member>
+        <member name="F:TagApp.TemplateParser.buffer">
+            <summary>
+            Trzyma informacje o bieżąco przerabianym kawałku templejta
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplateParser.flush">
+            <summary>
+            Czyści bufor - buffer
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplateParser.parseTemplate(System.String,TagApp.varNames)">
+            <summary>
+            Parsuje templejt do podglądu, nie pobiera jako argument tagów - na sztywno wpisuje
+            </summary>
+            <param name="template">schemat templejta</param>
+            <param name="definitions">definicje zmiennych/keywordów (struktura)</param>
+            <returns>Zparsowany templejt wypełnionymi danymi z tags</returns>
+        </member>
+        <member name="M:TagApp.TemplateParser.parseTemplate(System.String,TagApp.varNames,System.String[])">
+            <summary>
+            Parsuje templejt.
+            </summary>
+            <param name="template">schemat templejta</param>
+            <param name="definitions">definicje zmiennych/keywordów (struktura)</param>
+            <param name="tags">tagi do podmiany za keywordsy</param>
+            <returns>Pełny string z pozamienianymi keywordsami</returns>
+        </member>
         <member name="T:TagApp.TemplatesManager">
             <summary>
             Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
@@ -205,33 +232,6 @@
             <summary>
             The main entry point for the application.
             </summary>
-        </member>
-        <member name="F:TagApp.TemplateParser.buffer">
-            <summary>
-            Trzyma informacje o bieżąco przerabianym kawałku templejta
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplateParser.flush">
-            <summary>
-            Czyści bufor - buffer
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplateParser.parseTemplate(System.String,TagApp.varNames)">
-            <summary>
-            Parsuje templejt do podglądu, nie pobiera jako argument tagów - na sztywno wpisuje
-            </summary>
-            <param name="template">schemat templejta</param>
-            <param name="definitions">definicje zmiennych/keywordów (struktura)</param>
-            <returns>Zparsowany templejt wypełnionymi danymi z tags</returns>
-        </member>
-        <member name="M:TagApp.TemplateParser.parseTemplate(System.String,TagApp.varNames,System.String[])">
-            <summary>
-            Parsuje templejt.
-            </summary>
-            <param name="template">schemat templejta</param>
-            <param name="definitions">definicje zmiennych/keywordów (struktura)</param>
-            <param name="tags">tagi do podmiany za keywordsy</param>
-            <returns>Pełny string z pozamienianymi keywordsami</returns>
         </member>
     </members>
 </doc>
