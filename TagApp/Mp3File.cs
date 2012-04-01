@@ -16,22 +16,22 @@ namespace TagApp
     /// </summary>
     /// 
 
-    /* Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od zera. */
+    /// <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od zera. Jako ułatwienie pola posortowane alfabetycznie. </summary>
 
     enum TagFields : short
     {
-        Path,
-        Filename,
-        Artist,
-        Title,
         Album,
-        Track,
         AlbumArtist,
-        Tag,
+        Artist,
+        Comment,
         Discnumber,
-        Year,
+        Filename,
         Genre,
-        Comment
+        Tag,
+        Title,
+        Track,
+        Path,
+        Year  
     }
 
 
