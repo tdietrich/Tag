@@ -54,3 +54,4 @@ C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\en\TagApp.resources.dll
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.exe
 C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.pdb
 I:\Programowanie\Tag\TagApp\obj\x86\Debug\TagApp.Opcje.resources
+C:\Users\Tomek\Tag\TagApp\obj\x86\Debug\TagApp.Opcje.resources

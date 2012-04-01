@@ -11,11 +11,6 @@ using TagLib;
 using System.Threading;
 
 
-
-
-
-
-
 namespace TagApp
 {
     /*
@@ -60,7 +55,7 @@ namespace TagApp
     {
        
         public static List<TagLib.File> tablica;
-        public static Form OpcjeWin;
+        public static Opcje OpcjeWin;
         public static TagAppFileNames FileNames;
 
         private AboutBox1 oProgramie;
@@ -86,8 +81,6 @@ namespace TagApp
             {
                 System.IO.File.Create(FileNames.commonUsedDirs);
             }
-
-            OpcjeWin = new Opcje();     // tworzenie instacji okna opcji
         }
 
 
@@ -299,12 +292,12 @@ namespace TagApp
             OknoTemplatesManager = new TemplatesManager();
             OknoTemplatesManager.Show();
         }
-        #endregion
+        
 
         private void opcjeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             /* Akcja przycisku wywołującego okno opcji */
-
+            OpcjeWin = new Opcje();     // tworzenie instacji okna opcji
             OpcjeWin.Show();
         }
 
@@ -312,6 +305,7 @@ namespace TagApp
         {
 
         }
+        #endregion
     }
 
 
