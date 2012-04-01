@@ -21,11 +21,15 @@ namespace TagApp
     /*
      PLIK DOKUMENTACJI XML: bin\Debug\doc\TagApp.XML //generowany - updatowany za kazdym Buildem
      */
+
+
     /// <summary>
     /// Struktura przechowująca nazwy plików z których korzysta program
     ///W tej strukturze będziemy trzymac wszystkie nazwy plików używanych w programie - tzn txt np itp
     /// Plików zewnętrznych
     /// </summary>
+    /// 
+
     public struct TagAppFileNames
     {
         /// <summary>
@@ -34,25 +38,30 @@ namespace TagApp
         /// </summary>
         /// <param name="p">Opisuje templatesFile</param>
         /// <param name="s">Opisuje commonUsedDirs</param>
+       
         public TagAppFileNames(string p,string s)
         {
             templatesFile = p;
             commonUsedDirs = s;
         }
+
         /// <summary>
         /// Plik z używanymi szablonami nazewnictwa
         /// </summary>
         public string templatesFile;
+
         /// <summary>
         /// Często używane ścieżki do wyszukiwania
         /// </summary>
         public string commonUsedDirs;
     }
+
     public partial class MainWindow : Form
     {
        
         static List<TagLib.File> tablica;
         private AboutBox1 oProgramie;
+        public static Form OpcjeWin;
         private TemplatesManager OknoTemplatesManager;
         public static TagAppFileNames FileNames;
         /// <summary>
@@ -74,7 +83,12 @@ namespace TagApp
             {
                 System.IO.File.Create(FileNames.commonUsedDirs);
             }
+
+            OpcjeWin = new Opcje();     // tworzenie instacji okna opcji
         }
+
+
+
         /// <summary>
         /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
         /// Następnie wrzuca je do tablicy(listy)plików i przekazuje do mainGrida
@@ -160,21 +174,25 @@ namespace TagApp
             mainGrid.Rows.Add(info);
             return true; 
         }
+
         /// <summary>
         /// Funkcja szuka czy w Folderze programu jest plik o danej sciezce, zwraca tak lub nie
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
+        /// 
         public static bool searchForTagAppFile(string name)
         {
             if (System.IO.File.Exists(name)) return true;
             else return false;
         }
+
         /// <summary>
         /// Funkcja dodaje do pliku commonDirs, ścieżkę podaną jako argument, w przyszłości, będzie zliczać,
         /// najbardziej popularne śceiżki
         /// </summary>
         /// <param name="path">Ścieżka do dodania do pliku txt</param>
+        /// 
         public void addDirToCommonDirs(string path)
         {
             //strumień
@@ -251,13 +269,15 @@ namespace TagApp
              * po przycisnieciu na boxie o progr0amie, przycisku X,disposujemy ten obiekt, wiec za kazdym razem go musimy
              * tworzyc na nowo przy wyswietlaniu. To chyba nie problem.
              */
-            oProgramie = new AboutBox1();//construct
+
+            oProgramie = new AboutBox1();   //construct
             oProgramie.Show();//show
         }
 
         /*
          * Obsluga kliku wczytaj pojedynczy plik z menu na pasku gornym(Ctrl + O)
          */
+
         private void otwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)//obsługa  kliknięcia w menu w otwórz plik
         {
             DialogResult result = openFileDialog1.ShowDialog();//przypisanie wyników wyboru z okna wyboru 1 pliku
@@ -295,6 +315,18 @@ namespace TagApp
             OknoTemplatesManager.Show();
         }
         #endregion
+
+        private void opcjeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            /* Akcja przycisku wywołującego okno opcji */
+
+            OpcjeWin.Show();
+        }
+
+        private void narzędziaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 

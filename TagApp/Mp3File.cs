@@ -41,8 +41,6 @@ namespace TagApp
         public Mp3File(string Ppath) {
             TagLib.File plik = TagLib.File.Create(Ppath);
 
-            
-
         }
 
         public Mp3File()
