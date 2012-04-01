@@ -59,11 +59,14 @@ namespace TagApp
     public partial class MainWindow : Form
     {
        
-        static List<TagLib.File> tablica;
-        private AboutBox1 oProgramie;
+        public static List<TagLib.File> tablica;
         public static Form OpcjeWin;
-        private TemplatesManager OknoTemplatesManager;
         public static TagAppFileNames FileNames;
+
+        private AboutBox1 oProgramie;
+        private TemplatesManager OknoTemplatesManager;
+       
+
         /// <summary>
         /// Standardowy konstruktor
         /// </summary>
@@ -93,87 +96,70 @@ namespace TagApp
         /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
         /// Następnie wrzuca je do tablicy(listy)plików i przekazuje do mainGrida
         /// </summary>
-        /// <param name="filePaths"></param>
-        /// <returns></returns>
-        public bool appendIntoMainGrid(string[] filePaths)
+        /// <param name="filePaths">Tablica plików do wczytania</param>
+        public void loadTags(string[] filePaths)
         {
-
-
-            int howMuchFiles = filePaths.Length; //zmienna trzymająca ile plikow jest do wczytania
-            int counter = howMuchFiles - 1; //zmienna uzywana przy zlcizaniu ile plikow zaladowano
-            double coIleStep = (howMuchFiles) / (toolStripProgressBar1.Width); //pojedynczy step progress bara, obliczanie co ile plikow stepnąć progress bar o 1
-            int dummyCounter = 0; // glupi licznik sprawdzający czy juz osiagnelismy liczbe dodanych plików po ilu, stepujemy pasek
-            coIleStep = Math.Ceiling(coIleStep);//zaokraglenie w gore
-            toolStripProgressBar1.Step = (int)coIleStep; // przypisanie stepa
-
-            
-
-
-            if (filePaths.Length > 0)
+            if (filePaths.Length > 0)           // jeśli coś zostało wczytane
             {
-                foreach (string str in filePaths)
-                {
-                    
-                    toolStripStatusLabel1.Text = "Załadowano " + (howMuchFiles - counter).ToString() + " z " + howMuchFiles.ToString();//wpisanie do info obok prog. bara na dole x plikow z x
-                    string[] info = new string[7];          // utworzenie tablicy stringów żeby dodawać wierszami
-
-                    tablica.Add(TagLib.File.Create(str));   // dodanie pliku do tablicy obiektów
-
-                    /*
-                     * Teraz Lista odczytuje z elementu LAST, poprawnie wyświetla nowo dodane pliki
-                     * Poprzednio odcztywala ciagle ten sam.
-                     */
-
-
-                    info[0] = tablica.Count.ToString();
-                    info[1] = tablica.Last().Tag.Title;
-                    info[2] = tablica.Last().Tag.FirstPerformer;
-                    info[3] = tablica.Last().Tag.Album;
-                    info[4] = tablica.Last().Tag.DiscCount.ToString();
-                    info[5] = tablica.Last().Tag.Year.ToString();
-                    info[6] = str;
-                    mainGrid.Rows.Add(info);
-
-
-
-                    dummyCounter++;  // glupi licznik, zwiekszany czy juz zaladowalismy tyle plikow po ilu step progress bara
-                    if (dummyCounter.Equals((int)coIleStep)) // czy counter == coIleStep
-                    {
-                        toolStripProgressBar1.PerformStep(); // jezeli tak, step progress bara
-                        dummyCounter = 0; // wyzeruj licznik
-                    }
-                    counter--; // zmiejsz licznik - zaladowany zostal plik 
-                }
+                System.Threading.ThreadStart ts = delegate { appendIntoMainGrid(filePaths); };          // tworzenie delegata do funkcji jednoargumentowej
+                System.Threading.Thread watek = new System.Threading.Thread(ts);                        // tworzenie wątku
+                watek.Start();      // start wątku
+            }
+            else
+            {  // jeśli tablica filePaths będzie pusta
+                MessageBox.Show("Brak plików MP3 w folderze");
             }
 
-            toolStripProgressBar1.Value = 0;
-            return true;
+            return;
         }
+
         /// <summary>
-        /// Przeciążona Funkcja przyjmuje za argument pojedynczą scieżke pliku, Tworzy z niej obiekt TagLib.File
-        /// Następnie wrzuca do tablicy(listy)plików i przekazuje do mainGrida
-        /// 
+        /// Funkcja wczytująca pliki z podanej lokalizacji do głównej siatki
         /// </summary>
-        /// <param name="path"></param>
-        /// <returns></returns>
-        public bool appendIntoMainGrid(string path) 
+        /// <param name="filePaths">Tablica plików do wczytania</param>
+        public void appendIntoMainGrid(string[] filePaths)
         {
-            tablica.Add(TagLib.File.Create(path)); // dodanie pliku do tablicy obiektów
-            /*
-            * Teraz Lista odczytuje z elementu LAST, poprawnie wyświetla nowo dodane pliki
-            * Poprzednio odczytywala ciagle ten sam.
-            */
-            string[] info = new string[7];
-            info[0] = tablica.Count.ToString();
-            info[1] = tablica.Last().Tag.Title;
-            info[2] = tablica.Last().Tag.FirstPerformer;
-            info[3] = tablica.Last().Tag.Album;
-            info[4] = tablica.Last().Tag.DiscCount.ToString();
-            info[5] = tablica.Last().Tag.Year.ToString();
-            info[6] = path;
-            mainGrid.Rows.Add(info);
-            return true; 
+            toolStripProgressBar1.Minimum = 0;      // ustawienie wartości minimalnej progress bara
+            toolStripProgressBar1.Maximum = filePaths.Length;       // ustawienie wartości maksymalnej progress bara
+            toolStripProgressBar1.Value = 0;        // ustawienie wartości początkowej
+
+            foreach (string str in filePaths)
+            {
+                tablica.Add(TagLib.File.Create(str));       // dodanie pliku do tablicy agregującej wszystkie pliki
+                string[] info = new string[Enum.GetValues(typeof(TagFields)).Length];       // stworzenie tablicy jednowymiarowej o tylu komorkach ile jest w enumie (wszystkie ktore obslugujemy)
+
+                info[(int) TagFields.Album]         = tablica.Last().Tag.Album;
+                info[(int) TagFields.AlbumArtist]   = "DUPA";          // zaskoczę wszystkich, ale tu trzeba poprawić
+                info[(int) TagFields.Artist]        = tablica.Last().Tag.FirstPerformer;
+                info[(int) TagFields.Comment]       = tablica.Last().Tag.FirstGenre;
+                info[(int) TagFields.Discnumber]    = tablica.Last().Tag.Disc.ToString(); ;
+                info[(int) TagFields.Filename]      = tablica.Last().ToString();
+                info[(int) TagFields.Genre]         = "DUPA2";
+
+                mainGrid.Rows.Add(info);        // dodanie do głównego grida wszystkich informacji
+
+                toolStripProgressBar1.Value++;      // zwiększenie wartości wczytanych plików
+            }
+
+            toolStripProgressBar1.Value = 0;        // wyzerowanie progress bara
         }
+
+
+  
+        /// <summary>
+        /// Przeciążona funkcja, która zamienia pojedynczy plik na tablicę, a następnie wywoływana jest podstawowa funkcja
+        /// </summary>
+        public void appendIntoMainGrid(string path) 
+        {
+            string[] temp = new string[1];      // brzydki trick zamieniający jednego stringa na tablicę jednego elementu
+            temp[0] = path;
+
+            appendIntoMainGrid(temp);           // wywołanie podstawowej funkcji
+
+            return;
+        }
+
+         
 
         /// <summary>
         /// Funkcja szuka czy w Folderze programu jest plik o danej sciezce, zwraca tak lub nie
@@ -218,6 +204,8 @@ namespace TagApp
         {
             this.Close(); 
         }
+
+        
         ////
         // Przycisk Dodaj Folder - prymitywne poczatkowe eventy dodane, wybieranie folderu, wypisywanie nazwy, zliczanie plikow mp3
         // i wypisywanie nizej w rich text boxie
@@ -231,7 +219,7 @@ namespace TagApp
 
             DialogResult result = folderBrowserDialog1.ShowDialog();
 
-            if (result == DialogResult.OK)   // jezeli wybrano folder
+            if (result == DialogResult.OK)      // jezeli wybrano folder
             {
                 directoryTextBox.Text = folderBrowserDialog1.SelectedPath;//wpissz do texboxa wybrany folder
                 isFilePathGiven.Text = folderBrowserDialog1.SelectedPath;
@@ -248,9 +236,6 @@ namespace TagApp
                 }
 
                 addDirToCommonDirs(directoryTextBox.Text);
-                /*
-                 Tu w poprzedniej wersji byla petla foreach - zamienione na funkcje.
-                 */
                 appendIntoMainGrid(filePaths);
             }
         }
@@ -278,9 +263,9 @@ namespace TagApp
          * Obsluga kliku wczytaj pojedynczy plik z menu na pasku gornym(Ctrl + O)
          */
 
-        private void otwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)//obsługa  kliknięcia w menu w otwórz plik
+        private void otwórzPlikToolStripMenuItem_Click(object sender, EventArgs e)  //obsługa  kliknięcia w menu w otwórz plik
         {
-            DialogResult result = openFileDialog1.ShowDialog();//przypisanie wyników wyboru z okna wyboru 1 pliku
+            DialogResult result = openFileDialog1.ShowDialog(); //przypisanie wyników wyboru z okna wyboru 1 pliku
             if (result == DialogResult.OK) // Test result.
             {
                 string fileSelected = openFileDialog1.FileName; //sciezka do pliku wybranego z okna

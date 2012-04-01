@@ -26,7 +26,7 @@ namespace TagApp
         {
             InitializeComponent();
 
-            tagVisible = new bool[Enum.GetValues(typeof(TagFields)).Length;         // tworzenie tablicy o długości równej liczbie elementów w typie wyliczeniowym TagFields
+            tagVisible = new bool[Enum.GetValues(typeof(TagFields)).Length];         // tworzenie tablicy o długości równej liczbie elementów w typie wyliczeniowym TagFields
         }
     }
 }

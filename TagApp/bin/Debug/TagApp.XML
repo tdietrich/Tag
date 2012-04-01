@@ -4,14 +4,32 @@
         <name>TagApp</name>
     </assembly>
     <members>
-        <member name="T:TagApp.TagFields">
+        <member name="T:TagApp.Opcje">
             <summary>
-            Obiekt klasy Mp3File byłby abstrakcyjną reprezentacją rzeczywistego pliku mp3 z dysku. Na nim odbywałyby się wszystkie
-            operacje edycji tagów itp. Następnie zmiany zapisywane byłyby na dysk do pliku. Będzie agregowal obiekt Taglib (?) 
-            Nie ogarnalem jeszcze tej biblio tak, zeby kumac jak działa
-            
+            Klasa dziedzicząca po Formie. Nowe okno, w którym zawarte będą wszystkie opcje. Pojawia się po 
+            kliknięciu elementu Narzędzia -> Opcje w głównym menu.
             </summary>
-            
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:TagApp.Opcje.tagVisible" -->
+        <member name="F:TagApp.Opcje.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.Opcje.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TagApp.Opcje.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TagApp.TagFields">
+            <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od zera. Jako ułatwienie pola posortowane alfabetycznie. </summary>
         </member>
         <member name="F:TagApp.AboutBox1.components">
             <summary>
@@ -163,7 +181,7 @@
             Standardowy konstruktor
             </summary>
         </member>
-        <member name="M:TagApp.MainWindow.appendIntoMainGrid(System.String[])">
+        <member name="M:TagApp.MainWindow.loadTags(System.String[])">
             <summary>
             Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
             Następnie wrzuca je do tablicy(listy)plików i przekazuje do mainGrida
@@ -175,10 +193,7 @@
             <summary>
             Przeciążona Funkcja przyjmuje za argument pojedynczą scieżke pliku, Tworzy z niej obiekt TagLib.File
             Następnie wrzuca do tablicy(listy)plików i przekazuje do mainGrida
-            
             </summary>
-            <param name="path"></param>
-            <returns></returns>
         </member>
         <member name="M:TagApp.MainWindow.searchForTagAppFile(System.String)">
             <summary>
@@ -234,23 +249,6 @@
         <member name="F:TagApp.TagAppFileNames.commonUsedDirs">
             <summary>
             Często używane ścieżki do wyszukiwania
-            </summary>
-        </member>
-        <member name="F:TagApp.Opcje.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.Opcje.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:TagApp.Opcje.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
             </summary>
         </member>
     </members>
