@@ -112,9 +112,9 @@ namespace TagApp
         /// <param name="filePaths">Tablica plików do wczytania</param>
         public void appendIntoMainGrid(string[] filePaths)
         {
-            toolStripProgressBar1.Minimum = 0;      // ustawienie wartości minimalnej progress bara
+            toolStripProgressBar1.Minimum = 0;                      // ustawienie wartości minimalnej progress bara
             toolStripProgressBar1.Maximum = filePaths.Length;       // ustawienie wartości maksymalnej progress bara
-            toolStripProgressBar1.Value = 0;        // ustawienie wartości początkowej
+            toolStripProgressBar1.Value = 0;                        // ustawienie wartości początkowej
 
             foreach (string str in filePaths)
             {
@@ -127,7 +127,7 @@ namespace TagApp
                 info[(int) TagFields.Comment]       = tablica.Last().Tag.FirstGenre;
                 info[(int) TagFields.Discnumber]    = tablica.Last().Tag.Disc.ToString(); ;
                 info[(int) TagFields.Filename]      = tablica.Last().ToString();
-                info[(int) TagFields.Genre]         = "DUPA2";
+                info[(int) TagFields.Genre]         = tablica.Last().Length.ToString();
 
                 mainGrid.Rows.Add(info);        // dodanie do głównego grida wszystkich informacji
 

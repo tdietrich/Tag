@@ -20,27 +20,29 @@ namespace TagApp
 
     enum TagFields : short
     {
-        Album,
-        AlbumArtist,
-        Artist,
-        Comment,
-        Discnumber,
-        Filename,
-        Genre,
-        Tag,
-        Title,
-        Track,
-        Path,
-        Year  
+        Filename,           // nazwa pliku
+        Path,               // ścieżka do pliku
+        Artist,             // wykonawca utworu
+        Title,              // tytuł utworu
+        Album,              // album na którym znajduje się utwór
+        Track,              // numer utworu na płycie
+        AlbumArtist,        // 
+        Discnumber,         // numer dysku
+        Year,               // rok wydania utworu
+        Genre,              // gatunek utworu
+        Comment,            // komentarz w pliku
+        Composer,           // kompozytor utworu
+        Tag,                // wersja tagu          [TagTypes]
+        BPM,                // beats per minute     [BeatsPerMinute]
+        Cover               // okładka
     }
 
-
+  
 
     class Mp3File
     {
         public Mp3File(string Ppath) {
             TagLib.File plik = TagLib.File.Create(Ppath);
-
         }
 
         public Mp3File()
