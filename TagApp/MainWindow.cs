@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using TagLib;
 using System.Threading;
+using System.Xml;
 
 
 namespace TagApp
@@ -68,7 +69,7 @@ namespace TagApp
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
-            FileNames = new TagAppFileNames("userTemplates.txt","commons.txt");
+            FileNames = new TagAppFileNames("userTemplates.xml","commons.xml");
             InitializeComponent();
 
             //Wyszukuje plik, templejtów, jeżeli nie ma, tworzy go
@@ -82,8 +83,6 @@ namespace TagApp
                 System.IO.File.Create(FileNames.commonUsedDirs);
             }
         }
-
-
 
         /// <summary>
         /// Przeciążona Funkcja przyjmuje za argument tablicę ścieżek do plików, Tworzy z nich obiekty TagLib.File
@@ -172,18 +171,12 @@ namespace TagApp
         /// </summary>
         /// <param name="path">Ścieżka do dodania do pliku txt</param>
         /// 
-        public void addDirToCommonDirs(string path)
+        public void addDirToCommonDirs(string path, bool subs)
         {
             //strumień
-            FileStream plik;
-
-            //dodanie entera na koniec
-            path = path + "\n";
-            byte[] byteData = null;
-            byteData = Encoding.UTF8.GetBytes(path);
-            plik = new FileStream(FileNames.commonUsedDirs, FileMode.Append);
-            plik.Write(byteData, 0, byteData.Length);
-            plik.Close();
+            //FileStream plik;
+            XmlDocument doc = new XmlDocument();
+            XmlNode node = doc.CreateNode(XmlNodeType.XmlDeclaration, "", "");
 
         }
 
@@ -228,7 +221,7 @@ namespace TagApp
                     filePaths = Directory.GetFiles(@folderBrowserDialog1.SelectedPath, "*.mp3");
                 }
 
-                addDirToCommonDirs(directoryTextBox.Text);
+                addDirToCommonDirs(directoryTextBox.Text, ifSubfolders.Checked);
                 appendIntoMainGrid(filePaths);
             }
         }

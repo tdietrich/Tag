@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace TagApp
 {
@@ -76,43 +77,43 @@ namespace TagApp
                  *  nazwa1"schemat1"
                  *  nazwa2"schemat2"
                  */
-                string[] lines = System.IO.File.ReadAllLines(MainWindow.FileNames.templatesFile);
+                //string[] lines = System.IO.File.ReadAllLines(MainWindow.FileNames.templatesFile);
                 int i = 0;
                 string hlp = "";
                 string schema = "";
 
-                //Dodawanie obiektów do listy
-                foreach (string str in lines)
-                {
-                    hlp = "";
-                    schema = "";
-                    CharEnumerator enumerator = lines[i].GetEnumerator();
+                ////Dodawanie obiektów do listy
+                //foreach (string str in lines)
+                //{
+                //    hlp = "";
+                //    schema = "";
+                //    CharEnumerator enumerator = lines[i].GetEnumerator();
 
-                    enumerator.MoveNext();
-                    //do spacji znajduje sie nazwa szablonu
-                    while (!enumerator.Current.Equals('"'))
-                    {
-                        hlp += enumerator.Current;
-                        enumerator.MoveNext();
-                    }
-                    //nowy obiekt wrzucamy do listy
-                    Template wzor = new Template(lines[i]);
-                    wzor.Name = hlp;
+                //    enumerator.MoveNext();
+                //    //do spacji znajduje sie nazwa szablonu
+                //    while (!enumerator.Current.Equals('"'))
+                //    {
+                //        hlp += enumerator.Current;
+                //        enumerator.MoveNext();
+                //    }
+                //    //nowy obiekt wrzucamy do listy
+                //    Template wzor = new Template(lines[i]);
+                //    wzor.Name = hlp;
 
-                    schema += enumerator.Current;
-                    enumerator.MoveNext();
-                    while (!enumerator.Current.Equals('"'))
-                    {
-                        enumerator.MoveNext();
-                        schema += enumerator.Current;
-                    }
-                    wzor.TemplateSchema = schema;
-                    Templates.Add(wzor);
+                //    schema += enumerator.Current;
+                //    enumerator.MoveNext();
+                //    while (!enumerator.Current.Equals('"'))
+                //    {
+                //        enumerator.MoveNext();
+                //        schema += enumerator.Current;
+                //    }
+                //    wzor.TemplateSchema = schema;
+                //    Templates.Add(wzor);
 
-                    //dodajemy item do listboxa
-                    listBox1.Items.Add(wzor.Name);
-                    i++;
-                }
+                //    //dodajemy item do listboxa
+                //    listBox1.Items.Add(wzor.Name);
+                //    i++;
+                //}
             }
         }
 

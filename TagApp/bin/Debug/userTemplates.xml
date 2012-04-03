@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<userTemplate>
+	<name>Templejt</name>
+	<struct>$num - $artist $album</struct>
+	<setting>DEFAULT</setting>
+</userTemplate>
+
