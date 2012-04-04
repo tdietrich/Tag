@@ -61,6 +61,7 @@ namespace TagApp
 
         private AboutBox1 oProgramie;
         private TemplatesManager OknoTemplatesManager;
+        private int lp;
        
 
         /// <summary>
@@ -118,15 +119,37 @@ namespace TagApp
             foreach (string str in filePaths)
             {
                 tablica.Add(TagLib.File.Create(str));       // dodanie pliku do tablicy agregującej wszystkie pliki
-                string[] info = new string[Enum.GetValues(typeof(TagFields)).Length];       // stworzenie tablicy jednowymiarowej o tylu komorkach ile jest w enumie (wszystkie ktore obslugujemy)
+                string[] info = new string[Mp3File.numberOfFields + 1];       // stworzenie tablicy jednowymiarowej o tylu komorkach ile jest w enumie (wszystkie ktore obslugujemy)
 
-                info[(int) TagFields.Album]         = tablica.Last().Tag.Album;
-                info[(int) TagFields.AlbumArtist]   = "DUPA";          // zaskoczę wszystkich, ale tu trzeba poprawić
-                info[(int) TagFields.Artist]        = tablica.Last().Tag.FirstPerformer;
-                info[(int) TagFields.Comment]       = tablica.Last().Tag.FirstGenre;
-                info[(int) TagFields.Discnumber]    = tablica.Last().Tag.Disc.ToString(); ;
-                info[(int) TagFields.Filename]      = tablica.Last().ToString();
-                info[(int) TagFields.Genre]         = tablica.Last().Length.ToString();
+                TagLib.Tag nowy = tablica.Last().Tag;
+
+                info[0] = (++lp).ToString();                            // wpisanie liczby porządkowej
+                info[(int) TagFields.Artist] = nowy.JoinedPerformers;
+                info[(int) TagFields.Title] = nowy.Title;
+                info[(int) TagFields.Album] = nowy.Album;
+                info[(int) TagFields.Track] = nowy.Track.ToString();
+                info[(int) TagFields.AlbumArtist] = nowy.JoinedAlbumArtists;
+                info[(int) TagFields.Discnumber] = nowy.Disc.ToString();
+                info[(int) TagFields.Year] = nowy.Year.ToString();
+                info[(int) TagFields.Genre] = nowy.JoinedGenres;
+                info[(int) TagFields.Comment] = nowy.Comment;
+                info[(int) TagFields.Composer] = nowy.JoinedComposers;
+                info[(int) TagFields.Cover] = nowy.Pictures.Length.ToString();
+                info[(int) TagFields.Tag] = tablica.Last().Tag.GetType().ToString();
+                info[(int) TagFields.BPM] = nowy.BeatsPerMinute.ToString();
+
+                int j = str.LastIndexOf("\\");              // znalezienie indeksu ostatniego slasha
+                string file = "";
+                string path = "";
+
+                for (int i = j + 1; i < str.Length; i++)    // wczytanie nazwy pliku (od ostatniego slasha do końca)
+                    file += str[i];
+
+                for (int i = 0; i < j; i++)                 // wczytanie ścieżki pliku (od początku do ostatniego slasha)
+                    path += str[i];
+
+                info[(int) TagFields.Path] = path;
+                info[(int) TagFields.Filename] = file; 
 
                 mainGrid.Rows.Add(info);        // dodanie do głównego grida wszystkich informacji
 
@@ -299,6 +322,13 @@ namespace TagApp
 
         }
         #endregion
+
+        private void clearTableBut_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show("ZAPISZ ZMIANY FRAJERZE");
+
+            mainGrid.DataSource = null;
+        }
     }
 
 

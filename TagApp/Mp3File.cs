@@ -16,12 +16,11 @@ namespace TagApp
     /// </summary>
     /// 
 
-    /// <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od zera. Jako ułatwienie pola posortowane alfabetycznie. </summary>
+    /// <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od jeden. Jako ułatwienie pola posortowane alfabetycznie. </summary>
 
     enum TagFields : short
     {
-        Filename,           // nazwa pliku
-        Path,               // ścieżka do pliku
+        Filename = 1,       // nazwa pliku
         Artist,             // wykonawca utworu
         Title,              // tytuł utworu
         Album,              // album na którym znajduje się utwór
@@ -32,15 +31,18 @@ namespace TagApp
         Genre,              // gatunek utworu
         Comment,            // komentarz w pliku
         Composer,           // kompozytor utworu
+        Cover,
         Tag,                // wersja tagu          [TagTypes]
         BPM,                // beats per minute     [BeatsPerMinute]
-        Cover               // okładka
+        Path               // ścieżka do pliku
     }
 
   
 
     class Mp3File
     {
+        public const int numberOfFields = 15;
+
         public Mp3File(string Ppath) {
             TagLib.File plik = TagLib.File.Create(Ppath);
         }
