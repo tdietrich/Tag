@@ -70,7 +70,7 @@ namespace TagApp
         public MainWindow()
         {
             tablica = new List<TagLib.File>();
-            FileNames = new TagAppFileNames("userTemplates.xml","commons.xml");
+            FileNames = new TagAppFileNames("userTemplates","commons.xml");
             InitializeComponent();
 
             //Wyszukuje plik, templejtów, jeżeli nie ma, tworzy go

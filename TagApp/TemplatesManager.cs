@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Xml;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace TagApp
 {
@@ -67,56 +69,29 @@ namespace TagApp
 
             Templates = new List<Template>();
             InitializeComponent();
+
+            
             variableDefs = new varNames("default");
             TemplateParser.buffer = ""; //inicjalizacja pola kalsy statycznej
             //podwojone sprawdzenie właściwie bo MainWnd tez sprawdza
             if (MainWindow.searchForTagAppFile(MainWindow.FileNames.templatesFile))
             {
-                /*wczytywanie istniejących templejtów z pliku, linia po lini
-                 *struktura pliku powoduje ze w tabeli dane są umieszczone tak:
-                 *  nazwa1"schemat1"
-                 *  nazwa2"schemat2"
-                 */
-                //string[] lines = System.IO.File.ReadAllLines(MainWindow.FileNames.templatesFile);
-                int i = 0;
-                string hlp = "";
-                string schema = "";
-
-                ////Dodawanie obiektów do listy
-                //foreach (string str in lines)
-                //{
-                //    hlp = "";
-                //    schema = "";
-                //    CharEnumerator enumerator = lines[i].GetEnumerator();
-
-                //    enumerator.MoveNext();
-                //    //do spacji znajduje sie nazwa szablonu
-                //    while (!enumerator.Current.Equals('"'))
-                //    {
-                //        hlp += enumerator.Current;
-                //        enumerator.MoveNext();
-                //    }
-                //    //nowy obiekt wrzucamy do listy
-                //    Template wzor = new Template(lines[i]);
-                //    wzor.Name = hlp;
-
-                //    schema += enumerator.Current;
-                //    enumerator.MoveNext();
-                //    while (!enumerator.Current.Equals('"'))
-                //    {
-                //        enumerator.MoveNext();
-                //        schema += enumerator.Current;
-                //    }
-                //    wzor.TemplateSchema = schema;
-                //    Templates.Add(wzor);
-
-                //    //dodajemy item do listboxa
-                //    listBox1.Items.Add(wzor.Name);
-                //    i++;
-                //}
+                UpdateTemplateList();
             }
         }
 
+        /// <summary>
+        /// Updates Data in listbox due to List Templates
+        /// </summary>
+        public void UpdateTemplateList()
+        {
+            foreach (Template tmp in Templates)
+            {
+                //dodajemy item do listboxa
+                listBox1.Items.Add(tmp.Name);
+            }
+
+        }
         /// <summary>
         /// Lista wczytanych/posiadaych przez usera templejtów
         /// </summary>
@@ -151,5 +126,28 @@ namespace TagApp
             //na zmiane textu w boxie, parsujemy  templejt
             lookUpLabel2.Text = TemplateParser.parseTemplate(textBox4.Text, variableDefs);
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (!textBox2.Text.Equals("") && !textBox3.Text.Equals(""))
+            {
+                Template doZapisu = new Template(textBox3.Text);
+                doZapisu.Name = textBox2.Text;
+                doZapisu.UsageFrequency = 0;
+
+                Templates.Add(doZapisu);
+                UpdateTemplateList();
+            }
+
+        }
+
+        //Wykonaj Save jezeli zamykamy forme
+        private void TemplatesManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //SerializeAndSave(MainWindow.FileNames.templatesFile, Templates);
+
+        }
+
+   
     }
 }

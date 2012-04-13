@@ -4,49 +4,6 @@
         <name>TagApp</name>
     </assembly>
     <members>
-        <member name="T:TagApp.Opcje">
-            <summary>
-            Klasa dziedzicząca po Formie. Nowe okno, w którym zawarte będą wszystkie opcje. Pojawia się po 
-            kliknięciu elementu Narzędzia -> Opcje w głównym menu.
-            </summary>
-        </member>
-        <!-- Badly formed XML comment ignored for member "F:TagApp.Opcje.tagVisible" -->
-        <member name="F:TagApp.Opcje.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.Opcje.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:TagApp.Opcje.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="T:TagApp.TagFields">
-            <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od jeden. Jako ułatwienie pola posortowane alfabetycznie. </summary>
-        </member>
-        <member name="F:TagApp.AboutBox1.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.AboutBox1.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-        </member>
-        <member name="M:TagApp.AboutBox1.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
         <member name="T:TagApp.Properties.Resources">
             <summary>
               A strongly-typed resource class, for looking up localized strings, etc.
@@ -61,75 +18,6 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
-            </summary>
-        </member>
-        <member name="T:TagApp.varNames">
-            <summary>
-            Struktura przechowująca nazwy obsługiwanych stringów jako zmienne przez Edytor Tagów.
-            tzn np. vArtist musi być takim łańcuchem pod który TemplateManager będzie wrzucał w przyszlosci nazwy artystów
-            np. vArtist = "$artist" - dosłownie
-            </summary>
-        </member>
-        <member name="M:TagApp.varNames.#ctor(System.String)">
-            <summary>
-            Konstruktor inicjujący pola w zależności od parametru init. W przyszłosci, w konstruktorze, będzie możliwa
-            Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
-            </summary>
-            <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
-        </member>
-        <member name="T:TagApp.TemplatesManager">
-            <summary>
-            Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplatesManager.#ctor">
-            <summary>
-            Standardowy konstruktor, ale duzo sie dzieje
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.Templates">
-            <summary>
-            Lista wczytanych/posiadaych przez usera templejtów
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.variableDefs">
-            <summary>
-            Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
-            </summary>
-        </member>
-        <member name="F:TagApp.TemplatesManager.components">
-            <summary>
-            Required designer variable.
-            </summary>
-        </member>
-        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
-            <summary>
-            Clean up any resources being used.
-            </summary>
-            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
-        </member>
-        <member name="M:TagApp.TemplatesManager.InitializeComponent">
-            <summary>
-            Required method for Designer support - do not modify
-            the contents of this method with the code editor.
-            </summary>
-        </member>
-        <member name="M:TagApp.Program.Main">
-            <summary>
-            The main entry point for the application.
-            </summary>
-        </member>
-        <member name="T:TagApp.OurDirectory">
-            <summary>
-            Obiekt klasy Directory byłby abstrakcyjną reprezentacją folderu podanego do programu. Szczerze nie jestem pewien
-            czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
-            plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku.
-            </summary>
-        </member>
-        <member name="T:TagApp.Template">
-            <summary>
-            każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie(na razie):
-                - Format szablonu
             </summary>
         </member>
         <member name="F:TagApp.TemplateParser.buffer">
@@ -159,21 +47,72 @@
             <param name="tags">tagi do podmiany za keywordsy</param>
             <returns>Pełny string z pozamienianymi keywordsami</returns>
         </member>
-        <member name="F:TagApp.MainWindow.components">
+        <member name="T:TagApp.TemplatesManager">
+            <summary>
+            Klasa Okna Menedżera szablonów tagów, otwierającego się po kliknięciu w szablony nazewnictwa w menu
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.components">
             <summary>
             Required designer variable.
             </summary>
         </member>
-        <member name="M:TagApp.MainWindow.Dispose(System.Boolean)">
+        <member name="M:TagApp.TemplatesManager.Dispose(System.Boolean)">
             <summary>
             Clean up any resources being used.
             </summary>
             <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         </member>
-        <member name="M:TagApp.MainWindow.InitializeComponent">
+        <member name="M:TagApp.TemplatesManager.InitializeComponent">
             <summary>
             Required method for Designer support - do not modify
             the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplatesManager.#ctor">
+            <summary>
+            Standardowy konstruktor, ale duzo sie dzieje
+            </summary>
+        </member>
+        <member name="M:TagApp.TemplatesManager.UpdateTemplateList">
+            <summary>
+            Updates Data in listbox due to List Templates
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.Templates">
+            <summary>
+            Lista wczytanych/posiadaych przez usera templejtów
+            </summary>
+        </member>
+        <member name="F:TagApp.TemplatesManager.variableDefs">
+            <summary>
+            Obiekt typu varNames, trzyma nazwy/definicje zmiennych managera
+            </summary>
+        </member>
+        <member name="T:TagApp.TagAppFileNames">
+             <summary>
+             Struktura przechowująca nazwy plików z których korzysta program
+            W tej strukturze będziemy trzymac wszystkie nazwy plików używanych w programie - tzn txt np itp
+             Plików zewnętrznych
+             </summary>
+             
+        </member>
+        <member name="M:TagApp.TagAppFileNames.#ctor(System.String,System.String)">
+            <summary>
+            Co dodanie pola do struktury, dodawać argument do konstruktora i ustawiać w nim wartość
+            Konstruktor struktury nie moze byc domyślny(pusty)- narzucone przez VS. \
+            </summary>
+            <param name="p">Opisuje templatesFile</param>
+            <param name="s">Opisuje commonUsedDirs</param>
+        </member>
+        <member name="F:TagApp.TagAppFileNames.templatesFile">
+            <summary>
+            Plik z używanymi szablonami nazewnictwa
+            </summary>
+        </member>
+        <member name="F:TagApp.TagAppFileNames.commonUsedDirs">
+            <summary>
+            Często używane ścieżki do wyszukiwania
             </summary>
         </member>
         <member name="M:TagApp.MainWindow.#ctor">
@@ -229,30 +168,102 @@
             <param name="sender"></param>
             <param name="e"></param>
         </member>
-        <member name="T:TagApp.TagAppFileNames">
-             <summary>
-             Struktura przechowująca nazwy plików z których korzysta program
-            W tej strukturze będziemy trzymac wszystkie nazwy plików używanych w programie - tzn txt np itp
-             Plików zewnętrznych
-             </summary>
-             
-        </member>
-        <member name="M:TagApp.TagAppFileNames.#ctor(System.String,System.String)">
+        <member name="F:TagApp.MainWindow.components">
             <summary>
-            Co dodanie pola do struktury, dodawać argument do konstruktora i ustawiać w nim wartość
-            Konstruktor struktury nie moze byc domyślny(pusty)- narzucone przez VS. \
-            </summary>
-            <param name="p">Opisuje templatesFile</param>
-            <param name="s">Opisuje commonUsedDirs</param>
-        </member>
-        <member name="F:TagApp.TagAppFileNames.templatesFile">
-            <summary>
-            Plik z używanymi szablonami nazewnictwa
+            Required designer variable.
             </summary>
         </member>
-        <member name="F:TagApp.TagAppFileNames.commonUsedDirs">
+        <member name="M:TagApp.MainWindow.Dispose(System.Boolean)">
             <summary>
-            Często używane ścieżki do wyszukiwania
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TagApp.MainWindow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TagApp.OurDirectory">
+            <summary>
+            Obiekt klasy Directory byłby abstrakcyjną reprezentacją folderu podanego do programu. Szczerze nie jestem pewien
+            czy takie obiekty będą nam potrzebne. Mogłyby trzymać różne informację, które byłyby nam potrzebne z folderu jak np ilość
+            plików w. Poza tym załatwiłyby rozróżnienie folderu obiektów Mp3File, a samego pliku.
+            </summary>
+        </member>
+        <member name="F:TagApp.AboutBox1.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.AboutBox1.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:TagApp.AboutBox1.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TagApp.varNames">
+            <summary>
+            Struktura przechowująca nazwy obsługiwanych stringów jako zmienne przez Edytor Tagów.
+            tzn np. vArtist musi być takim łańcuchem pod który TemplateManager będzie wrzucał w przyszlosci nazwy artystów
+            np. vArtist = "$artist" - dosłownie
+            </summary>
+        </member>
+        <member name="M:TagApp.varNames.#ctor(System.String)">
+            <summary>
+            Konstruktor inicjujący pola w zależności od parametru init. W przyszłosci, w konstruktorze, będzie możliwa
+            Obsługa wielu "setów" zmiennych. Teraz defaultowy to $artist, $album itp. Ale mogą być też inne
+            </summary>
+            <param name="initType">STD UŻYWAć atrybutu "default" Okresla według jakich ustawien zainicjalizować akceptowalne nazwy zmiennych.</param>
+        </member>
+        <member name="T:TagApp.Template">
+            <summary>
+            każdy obiekt typu template <see cref="T:TagApp.Template"/> Posiada w sobie(na razie):
+                - Format szablonu
+            </summary>
+        </member>
+        <member name="M:TagApp.Template.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="temp">schema</param>
+        </member>
+        <member name="T:TagApp.Opcje">
+            <summary>
+            Klasa dziedzicząca po Formie. Nowe okno, w którym zawarte będą wszystkie opcje. Pojawia się po 
+            kliknięciu elementu Narzędzia -> Opcje w głównym menu.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:TagApp.Opcje.tagVisible" -->
+        <member name="F:TagApp.Opcje.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:TagApp.Opcje.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:TagApp.Opcje.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:TagApp.TagFields">
+            <summary>Typ wyliczeniowy ułatwiający numerowanie wszelkich tablich związanych z tagami. Numeracja od jeden. Jako ułatwienie pola posortowane alfabetycznie. </summary>
+        </member>
+        <member name="M:TagApp.Program.Main">
+            <summary>
+            The main entry point for the application.
             </summary>
         </member>
     </members>

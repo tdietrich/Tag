@@ -47,13 +47,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.lookUpLabel = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.lookUpLabel2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -178,6 +178,7 @@
             this.button1.TabIndex = 2;
             this.button1.Text = "Dodaj Nowy";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lookUpLabel
             // 
@@ -205,6 +206,16 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Edycja Szablonu";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(70, 174);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(92, 17);
+            this.checkBox1.TabIndex = 17;
+            this.checkBox1.Text = "Usuń Szablon";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // textBox3
             // 
@@ -259,16 +270,6 @@
             this.lookUpLabel2.TabIndex = 12;
             this.lookUpLabel2.Text = "Tu Wpisz Swój Szablon";
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(70, 174);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(92, 17);
-            this.checkBox1.TabIndex = 17;
-            this.checkBox1.Text = "Usuń Szablon";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // TemplatesManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,6 +279,7 @@
             this.Location = new System.Drawing.Point(300, 300);
             this.Name = "TemplatesManager";
             this.Text = "TemplatesManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TemplatesManager_FormClosing);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
